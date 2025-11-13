@@ -1,1 +1,1 @@
-openai_key = "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"
+openai_key = "YOUR_KEY_HERE"
