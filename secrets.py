@@ -1,1 +1,1 @@
-openai_key = "YOUR_KEY_HERE"
+openai_key = "asdasd"
