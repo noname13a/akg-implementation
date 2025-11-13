@@ -1,0 +1,10 @@
+Reconnaissance:
+APT40 used MURKYSHELL for port scanning IP addresses and conducting network enumeration. They also frequently use native Windows commands, such as net.exe, for internal reconnaissance of a victim's environment.
+
+Initial Access:
+Web shells are heavily relied on by APT40 for nearly all stages of the attack lifecycle.
+
+Others:
+Internal web servers are often not configured with the same security controls as public-facing counterparts, making them more vulnerable to exploitation by APT40 and similarly sophisticated groups.
+
+Reconnaissance: 0; Others: 1; Initial Access: 2;

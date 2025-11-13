@@ -1,0 +1,236 @@
+[
+    {
+        "triplets": [
+            {
+                "Object": "server",
+                "ObjectType": "infrastrcucture",
+                "Relation": "belong-to",
+                "Subject": "ESTsoft",
+                "SubjectType": "identity",
+                "tactic": "Initial Access",
+                "technique": [
+                    "T1195-Supply Chain Compromise"
+                ],
+                "Description_of_Subject": "The infrastructure, specifically computers belonging to SK Communications, which were targeted and compromised by the malware.",
+                "Description_of_Relation": "This highlights the compromised state of SK Communications computers due to the Backdoor.Agent.Hza malware.",
+                "Description_of_Object": "A backdoor malware that, once executed via the trojaned update file, compromised SK Communications computers."
+            },
+            {
+                "Object": "server",
+                "ObjectType": "infrastrcucture",
+                "Relation": "use",
+                "Subject": "ESTsoft",
+                "SubjectType": "identity",
+                "tactic": "Initial Access",
+                "technique": [
+                    "T1195-Supply Chain Compromise"
+                ],
+                "Description_of_Subject": "The infrastructure, specifically computers belonging to SK Communications, which were targeted and compromised by the malware.",
+                "Description_of_Relation": "This highlights the compromised state of SK Communications computers due to the Backdoor.Agent.Hza malware.",
+                "Description_of_Object": "A backdoor malware that, once executed via the trojaned update file, compromised SK Communications computers."
+            },
+            {
+                "Object": "trojaned update file",
+                "ObjectType": "file",
+                "Relation": "distribute",
+                "Subject": "attackers",
+                "SubjectType": "threat-actor",
+                "tactic": "Initial Access",
+                "technique": [
+                    "T1195-Supply Chain Compromise"
+                ],
+                "Description_of_Subject": "The infrastructure, specifically computers belonging to SK Communications, which were targeted and compromised by the malware.",
+                "Description_of_Relation": "This highlights the compromised state of SK Communications computers due to the Backdoor.Agent.Hza malware.",
+                "Description_of_Object": "A backdoor malware that, once executed via the trojaned update file, compromised SK Communications computers."
+            },
+            {
+                "Object": "Backdoor.Agent.Hza",
+                "ObjectType": "Malware",
+                "Relation": "contain",
+                "Subject": "trojaned update file",
+                "SubjectType": "file",
+                "tactic": "Initial Access",
+                "technique": [
+                    "T1195-Supply Chain Compromise"
+                ],
+                "Description_of_Subject": "The infrastructure, specifically computers belonging to SK Communications, which were targeted and compromised by the malware.",
+                "Description_of_Relation": "This highlights the compromised state of SK Communications computers due to the Backdoor.Agent.Hza malware.",
+                "Description_of_Object": "A backdoor malware that, once executed via the trojaned update file, compromised SK Communications computers."
+            },
+            {
+                "Object": "Backdoor.Agent.Hza",
+                "ObjectType": "Malware",
+                "Relation": "compromise",
+                "Subject": "SK Communications computers",
+                "SubjectType": "infrastrcucture",
+                "tactic": "Initial Access",
+                "technique": [
+                    "T1195-Supply Chain Compromise"
+                ],
+                "Description_of_Subject": "The infrastructure, specifically computers belonging to SK Communications, which were targeted and compromised by the malware.",
+                "Description_of_Relation": "This highlights the compromised state of SK Communications computers due to the Backdoor.Agent.Hza malware.",
+                "Description_of_Object": "A backdoor malware that, once executed via the trojaned update file, compromised SK Communications computers."
+            },
+            {
+                "Subject": "Backdoor.Agent.Hza",
+                "SubjectType": "Malware",
+                "Relation": "communicate-with",
+                "Object": "command and control server",
+                "ObjectType": "infrastructure",
+                "tactic": "Execution",
+                "technique": [
+                    "T1059-Command and Scripting Interpreter"
+                ],
+                "Description_of_Subject": "The unauthorized entities responsible for executing the cyberattack on SK Communications.",
+                "Description_of_Relation": "The act of deploying additional malicious software on infected systems to further extend control, perform data exfiltration, or other malicious activities.",
+                "Description_of_Object": "A specific piece of malware installed by attackers on compromised computers to facilitate access to sensitive user databases."
+            },
+            {
+                "Subject": "command and control server",
+                "SubjectType": "infrastructure",
+                "Relation": "located-at",
+                "Object": "116.127.121.41",
+                "ObjectType": "ipv4-addr",
+                "tactic": "Execution",
+                "technique": [
+                    "Others"
+                ],
+                "Description_of_Subject": "The unauthorized entities responsible for executing the cyberattack on SK Communications.",
+                "Description_of_Relation": "The act of deploying additional malicious software on infected systems to further extend control, perform data exfiltration, or other malicious activities.",
+                "Description_of_Object": "A specific piece of malware installed by attackers on compromised computers to facilitate access to sensitive user databases."
+            },
+            {
+                "Subject": "attackers",
+                "SubjectType": "identity",
+                "Relation": "used",
+                "Object": "nateon.exe",
+                "ObjectType": "Malware",
+                "tactic": "Execution",
+                "technique": [
+                    "T1059-Command and Scripting Interpreter"
+                ],
+                "Description_of_Subject": "The unauthorized entities responsible for executing the cyberattack on SK Communications.",
+                "Description_of_Relation": "The act of deploying additional malicious software on infected systems to further extend control, perform data exfiltration, or other malicious activities.",
+                "Description_of_Object": "A specific piece of malware installed by attackers on compromised computers to facilitate access to sensitive user databases."
+            },
+            {
+                "Subject": "attackers",
+                "SubjectType": "identity",
+                "Relation": "use",
+                "Object": "legitimate software update process",
+                "ObjectType": "process",
+                "tactic": "Defense Evasion",
+                "technique": [
+                    "T1553-Subvert Trust Controls"
+                ],
+                "Description_of_Subject": "The individuals or group responsible for the malicious activities, exploiting trusted systems to gain unauthorized access or cause harm.",
+                "Description_of_Relation": "The action of transferring or conveying the malicious file to SK Communications systems.",
+                "Description_of_Object": "A file that has been altered to contain malicious code, intended to be installed on SK Communications computers through a trusted update process."
+            },
+            {
+                "Subject": "attackers",
+                "SubjectType": "identity",
+                "Relation": "deliver",
+                "Object": "trojaned update",
+                "ObjectType": "file",
+                "tactic": "Defense Evasion",
+                "technique": [
+                    "T1553-Subvert Trust Controls"
+                ],
+                "Description_of_Subject": "The individuals or group responsible for the malicious activities, exploiting trusted systems to gain unauthorized access or cause harm.",
+                "Description_of_Relation": "The action of transferring or conveying the malicious file to SK Communications systems.",
+                "Description_of_Object": "A file that has been altered to contain malicious code, intended to be installed on SK Communications computers through a trusted update process."
+            },
+            {
+                "Subject": "infected computers",
+                "SubjectType": "artifacts",
+                "Relation": "communicate-with",
+                "Object": "command and control server",
+                "ObjectType": "infrastrcucture",
+                "tactic": "Command and Control",
+                "technique": [
+                    "T1568-Dynamic Resolution"
+                ],
+                "Description_of_Subject": "The cybercriminals responsible for orchestrating the attack, aiming to obtain unauthorized access to confidential personal information.",
+                "Description_of_Relation": "Describes the attackers' actions in using their infrastructure to extract and exfiltrate personal and sensitive data from compromised databases.",
+                "Description_of_Object": "Sensitive data obtained from user databases, targeted during the cyberattacks to extract valuable personal information."
+            },
+            {
+                "Subject": "domain 'update.alyac.org'",
+                "SubjectType": "domain-name",
+                "Relation": "resolve-to",
+                "Object": "South Korean IP address 116.127.121.41",
+                "ObjectType": "ipv4-addr",
+                "tactic": "Command and Control",
+                "technique": [
+                    "T1568-Dynamic Resolution"
+                ],
+                "Description_of_Subject": "The cybercriminals responsible for orchestrating the attack, aiming to obtain unauthorized access to confidential personal information.",
+                "Description_of_Relation": "Describes the attackers' actions in using their infrastructure to extract and exfiltrate personal and sensitive data from compromised databases.",
+                "Description_of_Object": "Sensitive data obtained from user databases, targeted during the cyberattacks to extract valuable personal information."
+            },
+            {
+                "Subject": "attackers",
+                "SubjectType": "threat-actor",
+                "Relation": "use",
+                "Object": "infrastructure",
+                "ObjectType": "infrastrcucture",
+                "tactic": "Command and Control",
+                "technique": [
+                    "Others"
+                ],
+                "Description_of_Subject": "The cybercriminals responsible for orchestrating the attack, aiming to obtain unauthorized access to confidential personal information.",
+                "Description_of_Relation": "Describes the attackers' actions in using their infrastructure to extract and exfiltrate personal and sensitive data from compromised databases.",
+                "Description_of_Object": "Sensitive data obtained from user databases, targeted during the cyberattacks to extract valuable personal information."
+            },
+            {
+                "Subject": "attackers",
+                "SubjectType": "threat-actor",
+                "Relation": "facilitate-theft-of",
+                "Object": "personal information",
+                "ObjectType": "data",
+                "tactic": "Command and Control",
+                "technique": [
+                    "Others"
+                ],
+                "Description_of_Subject": "The cybercriminals responsible for orchestrating the attack, aiming to obtain unauthorized access to confidential personal information.",
+                "Description_of_Relation": "Describes the attackers' actions in using their infrastructure to extract and exfiltrate personal and sensitive data from compromised databases.",
+                "Description_of_Object": "Sensitive data obtained from user databases, targeted during the cyberattacks to extract valuable personal information."
+            },
+            {
+                "Subject": "Attackers",
+                "SubjectType": "Identity",
+                "Relation": "exfiltrate-to",
+                "Object": "waypoint",
+                "ObjectType": "Infrastrcucture",
+                "tactic": "Exfiltration",
+                "technique": [
+                    "T1048-Exfiltration Over Alternative Protocol"
+                ],
+                "Description_of_Subject": "Attackers who targeted SK Communications to retrieve sensitive user data.",
+                "Description_of_Relation": "Transfer of data to an intermediary point, suggesting an attempt to move data covertly through various channels.",
+                "Description_of_Object": "A waypoint, presumably a server or digital location, purportedly associated with a company located in Seoul's Nonhyeon neighborhood, used to gather the exfiltrated data before transferring it further."
+            }
+        ],
+        "file_name": "C5_APT_SKHack",
+        "tactic_label": true,
+        "rewrite": {
+            "Reconnaissance": "None",
+            "Resource Development": "None",
+            "Initial Access": "The attackers initially compromised a server belonging to a South Korean software company, ESTsoft, which was used to deliver software updates to customers, including SK Communications. Between July 18 and 25, 2011, the attackers modified the server to distribute a trojaned update file to SK Communications computers during routine checks for software updates. This trojaned update file contained the malware 'Backdoor.Agent.Hza', which subsequently infected over 60 SK Communications computers.",
+            "Execution": "The malware 'Backdoor.Agent.Hza', dropped by the trojaned update file, executed on the infected SK Communications computers, establishing a backdoor for the attackers. The malware communicated with a command and control server located at the South Korean IP address 116.127.121.41 on TCP port 8080. The attackers also installed additional malware named 'nateon.exe' on at least one of the infected computers, which was used to access the user databases.",
+            "Persistence": "None",
+            "Privilege Escalation": "None",
+            "Defense Evasion": "The attackers used a legitimate software update process as a means of delivering the trojaned update, effectively turning a security practice into a vulnerability. The security of software updates is usually trusted implicitly, and the exploitation of this trust relationship went undetected by SK Communications for some time.",
+            "Credential Access": "None",
+            "Discovery": "None",
+            "Lateral Movement": "None",
+            "Collection": "None",
+            "Command and Control": "The infected computers communicated with a command and control server using the domain 'update.alyac.org', which resolved to the South Korean IP address 116.127.121.41. The attackers used this infrastructure to monitor and control the infected computers, and to facilitate the theft of personal information from the user databases.",
+            "Exfiltration": "The attackers exfiltrated the personal details of up to 35 million SK Communications customers from the user databases to a waypoint, purportedly belonging to a company based in Seoul's Nonhyeon neighborhood. The personal information included names, phone numbers, home and email addresses, birth dates, gender details, user identifiers, passwords, and resident registration numbers due to South Korea's Real Name System in place at the time.",
+            "Impact": "None",
+            "Others": "None"
+        },
+        "technique_label": true
+    }
+]

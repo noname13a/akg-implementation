@@ -1,0 +1,1144 @@
+SK Hack by anAdvanced Persistent ThreatCommand Five Pty LtdSeptember 2011
+
+ABSTRACT
+
+the July	 2011	
+
+This	 document	 summarisesintrusion into	 SKCommunications which	 culminated	 in the theft	 of	 the personalinformation of	up	to	35 million people. It describes the use of a trojanedsoftware update to	gain access to	the target	network,	in effect	turning asecurity	 practice into	 a vulnerability.	 It also	 describes the use of	 alegitimate company to host tools used in the intrusion. Links betweenthis intrusion and other malicious activity	 are identified	 and	 valuableinsights are provided for network defenders. Technical details ofmalicious software and	infrastructure are also	provided.
+
+WARNING
+
+This	 paper discusses maliciousactivity	 andidentifies Internet Protocol (IP) addresses, domainnames, and websites that may	 contain maliciouscontent.	 For safety	 reasons these locations shouldnot	 be accessed,	 scanned, probed,	 or otherwiseinteracted	 with	 unless their trustworthiness can beverified.
+
+SK HACK
+
+On 28	 July	 2011	 SK Communications announced	 ithad	been the subject	of a hack which	resulted	in thetheft	of	the personal details of	up	to	35	million of	itsusers.	 The compromised	 details were those ofCyWorld	 and	 Nate users,	 asin SK	Communications’ user databases.	CyWorld1 is	SouthKorea’s largest	 social networking	 site and	 Nate is	 apopular South	Korean web portal.	Both	services areowned by	SK Communications.	(Sung­jin, 2011)
+
+stored	
+
+1CyWorld has	 also expanded	 to China, Japan, the United	 States,Taiwan, Vietnam and	Europe. (SK	Communications)
+
+The sophistication of	 the attack along	 with	 theperiod of time over which	 it	 was planned,	 and	conducted,	 indicate that	 this attack was likely	 tohave been undertaken by	 an Advanced	 PersistentThreat2.	
+
+infected	
+
+computers
+
+Between 18 and 25 July 2011	 the attackers3infected over 60 SK	Communications computers andused them	to	gain access to the user databases.	Theattackersfirstthesecompromising	a server, belonging	to a South Koreansoftware company, used	to deliver software updatesto	 customers (including SK Communications).	 Theattackers modified	 the server so	 thatthe SKaCommunicationstrojaned4 update file when they	 conducted	 theirroutine checks for software updates.	 (Moon­young,2011) (ESTsoft,	2011)
+
+computers would
+
+receive
+
+2 For a definition of the term ‘Advanced	Persistent Threat’	refer tothe Command Five paper ‘Advanced	Persistent Threats: A Decadein Review’	(Command	Five Pty Ltd, 2011).	3 The term ‘attackers’ is used in this	 paper to describe both thehackers	and	anyone to whom they were reporting.4 A trojan is a document or program which	appears harmless	butperforms	malicious activity when opened	or run.
+
+PAGE 1 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+Such	 routine updates (commonly	 known as‘patches’) are a good security	practice as they ofteninclude fixes for security weaknesses identified inthe software.	 Without	 software updates the SKcomputers would	 have beenCommunicationsvulnerable to several other attacks including	 asignificant one which	 was made public in June20115.	 The security of software updates is usuallytrusted	 implicitly	 and	 the exploitation of	 this trustrelationship could	go	undetected by many	targets,	asit	did for some time by	SK	Communications.	
+
+Between 18	and 25	July	the attackers conducted	command and control and monitoring activities onthe infected computers.	 This involved the upload	of	tools,	 conveniently stored on the website of aTaiwanese publishing company	 the attackers had	earlier hacked.	Then on 26 July	2011,	the attackers,	having	 done the necessary	 groundwork,	 proceededto	 hack the Nate and CyWorld user databases 6.(Birdman, 2011) (Moon­young,	2011)
+
+details
+
+of	 up
+
+to	 35 million
+
+Using	 ‘waypoints’7 to	 obfuscate the source of	their activities,	 the attackers successfully	 stole thepersonalSKCommunications customers from the user databases.	These personal details included	 names,	 phonenumbers,	 home and email addresses, birth dates,gender details,	 user identifiers,	 passwords	 and,	 dueto	 South Korea’s Real Name System8 which	 was inplace at	the time,	also	resident	registration numbers.	The passwords	 and resident	 registration numberswere reportedly encrypted but the other detailswere not.	(Birdman,	2011) (Hauri ­ Response Team,	2011) (Moon­young, 2011) (Jin­woo	Seo,	2011)
+
+THE UPDATE SERVER
+
+The update server used	 by	 the attackers as alaunchpad	SK	Communications was ESTsoft’s ALZip update server.	ESTsoft is	 a large South	 Korean software company
+
+against
+
+attack
+
+their
+
+5 A vulnerability exists	in certain versions	of a software programused	 by SK	 Communications	 (amongst other companies) whichcould allow	 an attacker to gain control	 of computers	 if theprogram is	 used	 on them to open a maliciously crafted	 file.(Japanese IT Promotion Agency 2011)6 According	 to the Korean National	 Police Agency the hackercollected	 information from the infected	 computers	 for up to aweek before hacking	the databases. (Moon­young, 2011)7 A ‘waypoint’	is	a computer used	by attackers	as	an intermediarypoint to obfuscate the source of their hacking	activities.8 Under South	Korea’s	Real	Name System, Koreans	were requiredto submit their real	 names	 and	 resident registration numberswhen creating	 accounts	 on any website attracting	 more than100,000 visitors	per day. (TMCnews	2011)
+
+antivirus
+
+software,	 ALYac.	 The
+
+and	 ALZip	 is a file compression and	 archive tooldeveloped	by	the company.	ALZip	is	part	of	a trustedsuite of tools known as ALTools which also	includestheantivirussoftware is	 independent	 of the rest	 of	 the suite of	tools.	It	uses a different update program	and	serverto	 the other tools.	 The security	 of	 ALYac was notcompromised	in the attack.	(ESTsoft, 2011) (ESTsoft,	2011)
+
+The attackers,	 purportedly using	 Chinese IP	addresses9,	gained	access to the ALZip update servervia unknown means and	uploaded	instructions to	it.	Then,	 whencomputersSK	 Communicationsconducted	 their routine check for ALTools updates,the attacker’s instructions on the update serverdirected the computers to download a trojanedupdateattacker’s Content	 DeliveryNetwork10 (CDN) instead	 of	 the legitimate updatefrom ESTsoft’s CDN. (ESTsoft,	2011)
+
+from	
+
+exploits	 a
+
+trojaned	 update
+
+(ALCMUpdate.exe)
+
+softwarevulnerability 11 in the ALTools Common ModuletheUpdate Applicationprogram	 used to	 conduct	 the routine checks forALToolssoftware updates.	 This	 vulnerability	allowed	 a malicious Dynamic Link Library	 (DLL)12file to be loaded	instead of	the legitimate DLL updatefile (ALAd.dll),	thereby enabling	malicious code to berun and	 maliciousto	 beinstalled	on computers which	requested	the update.	Over 60	 SK	 Communications computers werecompromised	 via the trojaned	 update. (ESTsoft,2011) (EDaily,	2011) (ESTsoft,	2011)
+
+software (malware)
+
+The attackers are believed to	 have designated	targets for infection, so	that	the trojaned	update wasonly	 delivered	 to	 SK Communications computersand	 not	 to	 other computers requesting	 the same
+
+9 According	 to South	 Korean news	 outlets	 the attackers	 usedChinese IP	addresses. (Goodin, 2011)10 A CDN is	 comprised	 of multiple servers	 which	 are used	 todistribute software downloads, thereby balancing	 the load	 andpreventing outages	 dueto individual	 servers	 becomingoverloaded.11 A software vulnerability existed in the update program used	byseveral	 tools	 in the ALTools suite. The vulnerability allowedarbitrary code to be executed	but could only	be exploited	from theactual	update server or, if a computer could be directed to it (eg.by modifying	the host file	on the computer or via DNS hijacking),a fake	update server. A patch	for the vulnerability was	released	on4	August 2011. (ESTsoft 2011) (ESTsoft, 2011)12 According	to Microsoft, a DLL is a library that contains	code anddata that can be used	by more than one program at the same time.(Microsoft 2007)
+
+PAGE 2 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+software update from	 the server13.	 The way	 theupdate server was used	 in the attack is	 depicted inFigure 1.
+
+attack.	This	knowledge was likely	gained during thereconnaissance14 stage of	the attack.
+
+THE INFECTED COMPUTERS
+
+Attacker
+
+ALZip Update Server
+
+Targeted Computers
+
+Non­targeted Computers
+
+MaliciousCDN
+
+LegitimateCDN
+
+After the ALZip	 update program	 (ALCMUpdate.exe)downloaded the trojaned	 update onto	 the 60+	 SKCommunicationscomputerscomputers,	subsequently	became infected with malware knownas ‘Backdoor.Agent.Hza’. The trojaned	 update file‘dropped’ the malware ‘Backdoor.Agent.Hza’ onto	the computers and,	 in so	 doing,	 gave the attacker ainto	 them.	 The trojaned update is	‘backdoor’‘Trojan.Dropper.Agent.Hzadetected	Backdoor.Agent.Hza’‘V.DRP.Agent.Hzaand	V.BKD.Agent.Hza’ by	 different	 versions of ESTsoft’sALYac antivirus software.	 (ESTsoft,	 2011) (ESTsoft,	2011)
+
+Once infected,	 the computers communicated	with	 the command	 and	 control server located at	South	 Korean IP	 address 116.127.121.41	 onTransmission Control Protocol (TCP) port 808015.	Itis	 possible the infected SK	 computers used	 thecallback(reportedly	associated	 with the hack16) to	 locate the commandand	 control server.	 It	 is, however,	 unconfirmed	whether the domain ‘update.alyac.org’ resolved	 to	the South	 Korean IP	 address at	 the time of theattack.IDC, 2011)(ETnews,	2011)
+
+‘update.alyac.org’
+
+(ESTsoft,	 2011)
+
+(Samsung	
+
+domain
+
+Attacker modifies the ALZip update server.Computers check for ALZip software updates and areredirected to a Content Delivery Network (CDN).Non­targeted computers download a legitimateupdate from the ESTsoft CDN. Targeted computers download a trojaned update from the attacker’s malicious CDN.
+
+FIGURE 1 ­ DEPICTION OF HOW THE ALZIP UPDATESERVER WAS USED IN THE ATTACK
+
+This	 specific targeting	 of	 SK Communicationsindicates the targeting wasn’t purely opportunistic.To target	 the company in the manner they	 did,	 theattackers would	 have needed	 knowledge of	 SK	Communications and	 its	 use of	 ALZip,	 ahead	 of	 the
+
+13 The Korean National	 Police Agency presumes	 the hacker,instead	 of targeting	 all ALZip users, singled out the intranetcomputers	at SK	Communications. (Moon­young,	2011)
+
+Between 18	 July	 2011	 and 25	 July	 2011,	 theattackers used	 the infected	 computers to	 collect	additional internal access information and	databasecredentials.	 They	 presumably	 used	 a file named	‘x.exe’17 to	 acquire some of this information,	 afterdownloading it onto infected computers from atoolbox they	 had	 earlier set	 up. Based	 on thebehaviour of	 this file, the attackers likely	 used it	 to	conduct	 network enumeration and to	 obtain
+
+14 For an explanation of the reconnaissance stage of an attackrefer to the Command	Five Paper ‘Advanced Persistent Threats: ADecade in Review’ (Command	Five Pty Ltd, 2011).15 According to Samsung	 IDC, the ALTools related command andcontrol server was	using	IP	address 116.127.121.41.16 According	to ETnews	the domain ‘update.alyac.org’	was	used	inthe hack. ETnews	 does	 not state how the domain was	 involvedbut, given the infected computers	had	ALTools	installed	on them,use of ‘ALYac.org’	 in the callback domain may have helped todisguise the malicious	communications. (ETnews 2011)17 The file named ‘x.exe’	 is	 51712 bytes	 and has	 a SHA1	 hash of5A1B	 E6AD CB2C C40B 2E9D 6B6C 569F	 D4DA B273 E7AD.(JSUNPACK,	2011)
+
+PAGE 3 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+credentials such	 as usernames and	 passwords 18.	(Birdman, 2011) (Moon­young,	2011)
+
+The attacker also	installed	the malware used	 to	access the user databases on at least one of theinfected computers.	 The malware was named	‘nateon.exe’19 and	 was also	 hosted	 on the sametoolbox,	 along	 with another file named ‘rar.exe’20.	(Birdman, 2011) (Hauri	­ Response Team,	2011)
+
+Static analysis21 of	the file ‘rar.exe’ indicates it	is	a modified version of	 the WinRar22 command lineprogram	 ­ also	 named ‘rar.exe’. The file may	 havebeen used in the attack to create or open archivefiles.	 The modifications made to	 the programfrom display,	remove the program	 propertiespresumably	 to disguise the true nature of the file.This	is somewhat redundant	in this instance though,given the file name indicates the nature of	 theprogram.
+
+THE TOOLBOX
+
+files downloaded onto the
+
+infected SK	TheCommunications computers were reportedly	hosted	at	 ‘www.cph.com.tw/act’23 – a website belonging tothe large Taiwanese publishing company,	Cite Mediathe company’sis	Holding	 Group 24 .	webserver was compromised	 unbeknownst	 to	 itsowner and used	 by	 the attacker as a toolbox fromwhich	 to	 download	 malicious files and	 hacker toolsonto targeted	computers.
+
+likely	
+
+The website ‘cph.com.tw’ is assumed	 to	 havebeen running	 on an Internet	 Information Services(IIS) webserver at	the time the server was hacked 25.	IIS	 runs on the Microsoft	 Windows	 operatingsystem,	 indicating	 the compromised	 server was
+
+asand
+
+detects	
+
+Antivirus
+
+thesoftware18‘Heuristic.BehavesLike.Win32.PasswordStealer.H’	‘HKTL_NETVIEW’. (Hispasec Sistemas, 2011)19 The file named ‘nateon.exe’ is	 166912 bytes and	 has a SHA1hash of F84C D73D ABF1	 8660	 7F98	 6DF9	 8C54 02A5	 7BB58AD1.	 It is	 detected	 as ‘Backdoor.Sogu’ by Symantec antivirussoftware. (JSUNPACK	2011). (Hispasec Sistemas, 2011)20 The file	named	‘rar.exe’ is	337920	bytes	and	has	a SHA1	hash ofE87C 3ACB	 A599	 5E01 7AD3	 1B29	 A5E2	 FE36 3ED4 D9EB.(JSUNPACK	2011)21 Static analysis	 refers to analysis	 of a program’s code todetermine its functionality, as	 opposed	 to dynamic analysis	 inwhich	a program is	executed to determine its	behaviour.22 WinRAR is	a popular archiving	and compression tool.23 The files	 ‘nateon.exe’,‘www.cph.com.tw/act’. (Birdman, 2011)24 Cite Media Holding	 Group publishes	 over 20 million magazineissues each year in Taiwan. (Novell 2011)25 An archived error page shows	 the ‘cph.com.tw’ website wasrunning	on an IIS server in late 2010. (The Internet Archive 2010)
+
+‘rar.exe’ and	 ‘x.exe’ were hosted	 at
+
+likely	 running	 Microsoft Windows. There are anumber of	 known vulnerabilities for both	 IIS	 and	Microsoft	 Windows	 which	 potentially	 could	 havebeen exploited and resulted	 in the compromise ofthe webserver26.
+
+THE DATABASE ACCESS
+
+After the week collecting information from theinfected computers the attackers were ready toaccess the databases. On 26 July	2011,	they used theinformation they	 had	 gathered,	 along	 with	 amalicious program	named	‘nateon.exe’,	to	access theNatetheft	 ofinformation continued	 into the following day	 ­ 27July	 2011. (Birdman,	 2011) (Moon­young,	 2011)(Hauri ­ Response Team,	2011)
+
+and	 CyWorld	 databases.	 The
+
+The personal
+
+information extracted from thedatabases was purportedly	 sent	via a waypoint	to	aChinese IP address where the hacker received theinformation.	 The waypoint	 used	 purportedly	belonged	 to a company	 based	 in Seoul’s Nonhyeonneighbourhood.	(Moon­young,	2011)
+
+The South Korean waypoint	 may	 have beenlocated	 by	 the malware using	 the callback domain‘ro.diggfunny.com’ which	 was reportedly	 associated	with	the leak of	information from	the databases27.	It	has not,	 however,	 been confirmed	 whether,	 at	 thetime of	the attack,	this callback domain pointed	to	anIP	address belonging	to a Nonhyeon­based	company.
+
+26 Both	 the Microsoft Security TechCenter and	 the US NationalVulnerability Database make available a comprehensive list ofMicrosoft Windows and	 IIS vulnerabilities.(Microsoft n.d.)(National Institute of Standards and Technology n.d.)27 According	to Samsung	IDC the IP address	116.127.121.109	wasassociated with the leak of database files	 from Nate. (SamsungIDC 2011)
+
+PAGE 4 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+10026210/10070910: 31 9C 6C 4C  B9 3A 10 00  E8 03 00 00  01 00 50 00  1.lL.:..è.....P.10026220/10070920: 6E 61 74 65  6F 6E 2E 64  75 61 6D 6C  69 76 65 2E  nateon.duamlive.10026230/10070930: 63 6F 6D 00  00 00 00 00  00 00 00 00  00 00 00 00  com.............10026240/10070940: 00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00  ................…100268A0/10070FA0: 00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00  ................100268B0/10070FB0: 00 00 00 00  00 00 00 00  00 00 00 00  77 69 6E 73  ............wins100268C0/10070FC0: 76 63 66 73  00 00 00 00  00 00 00 00  00 00 00 00  vcfs............100268D0/10070FD0: 00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00  ................…10026930/10071030: 00 00 00 00  00 00 00 00  00 00 00 00               ............
+
+FIGURE 2 ­ EXCERPTS FROM THE ‘NATEON.EXE’ CONFIGURATION BLOCK
+
+THE DESTORY RAT
+
+Structure	and Behaviour
+
+routable on the Internet and	 suggests the attackersrely	 on the configuration instead of the hardcoded	callback address.
+
+(RAT)	
+
+Administration
+
+The malicious program named ‘nateon.exe’ installs anamedRemote‘winsvcfs.dll’.	It modifies the system registry	in such	a way	that	the RAT	gets executed	as a service by	thetime thetrusted	 processcomputer is	 started.	 Once ‘winsvcfs.dll’ is	 installed,	‘nateon.exe’ 29 and	‘nateon.exe’‘winsvcfs.dll’30 are now	 detected	 by	 some antivirussoftware.	
+
+‘svchost.exe’ 28 each	
+
+is	 deleted. Both	
+
+the malware reveals aStatic analysis	 of	configuration block.	 Thisconfiguration blockcontains the name of	the DLL file which	‘nateon.exe’is	 to create. In this instance,	 the configured named	was ‘winsvcfs.dll’,	 as shown in Figure 2.	 Due to	 thename being	configurable,	the RAT	will not	always becalled	 ‘winsvcfs.dll’.	 The configuration block also	contains a callback domain and portfor themalware’s command	 and	 control communications.	to	 beThe‘nateon.duamlive.com’ and	 the port is	 configured tobe 80	(50 in hexadecimal),	also	shown in Figure 2.
+
+configured
+
+callback
+
+domain
+
+If	 no	 configuration is specified, the malwareuses default	 values instead.	 The default	 callbacklocation hardcoded into	 the malware is	 the privateIP	 address,	 192.168.0.200.	 This	 address is	 not
+
+28 The process ‘svchost.exe’	is	a generic host process for serviceswhich	run from DLLs. (Microsoft, A description of Svchost.exe inWindows XP	Professional Edition 2007)29 On 29 July	 2011, 23 of 43 antivirus products	 tested detected‘nateon.exe’	 as	 malware, as	 of 19 August 2011 this	 number hadincreased to 36 of the 43. (Hispasec Sistemas 2011) (HispasecSistemas	2011)30 As	 of 6 September 2011, 34 of 44	 antivirus products testeddetected	‘winsvcfs.dll’	as malware. (Hispasec Sistemas	2011)
+
+used	
+
+the malware
+
+According to information contained	 within‘nateon.exe’,SKCommunications hack was compiled	 from	 sourcecode on 27	 September 2010	 at	 01:17.04 ­ over 6	months before the attack.	 The configuration blockwas likely	inserted	into	the binary	after this date asthe callback domain was not	 registered	 until May	2011.	This	may indicate that	the RAT has been usedin other attacks but	 with different	configurations.	If	identified ‘Backdoor.Sogu’ 31 is	 athe previously	version of the malware, other callback domainspreviously	 configured	 may	 include those known to	be used	 by ‘Backdoor.Sogu’. These domains include‘bbs.afbjz.com',	and‘www.adv138mail.com'32.
+
+‘newhose.ntimobile.com',	
+
+The RAT	 has many	 different	 capabilities and	runs	on multiple versions of the Microsoft	Windows	operating system.	 The RAT's behaviour changesslightly	depending	on which version of	the Windows	operating system itis installed	 on and which	modules are installed.	 Modules used	 by	 the RAT	deployed	 to	 the SK Communications networkinclude:
+
+detects	
+
+antivirus
+
+31 Symantec‘nateon.exe’	 assoftware'Backdoor.Sogu'. The malware described	 by Symantec exhibitssimilar behaviour to 'nateon.exe'	but is	a smaller size. (Mullaney,2011)32 In addition to being	 used	 by ‘Backdoor.Sogu’, the callbackdomain 'www.adv138mail.com' was	used	by a Poison Ivy RAT in aJuly	 2011	 socially engineered email	 campaign which	 targetedexperts	on the relationship of the United	States	with	Japan, Chinaand	Taiwan. (Parkour, 2011)
+
+PAGE 5 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+advapi32.dll,cryptbase.dll,gdi32.dll,iphlpapi.dll,kernel32.dll,
+
+������ mpr.dll,� msvcrt.dll,�ntdll.dll,�odbc32.dll,�ole32.dll,�psapi.dll,�sfc.dll,�shell32.dll,�shlwapi.dll,�user32.dll,�userenv.dll,�version.dll,� wininet.dll,� ws2_32.dll,� wtsapi32.dll.
+
+Of note,	 the module ‘odbc32.dll’ is	 used	 in theaccess of	 databases.	 The RAT	 uses a number of	Standard Query Language (SQL)33 functions which	are accessed (or more technically,	 dynamicallyimported)	as the software runs.	These include:	
+
+������������
+
+SQLAllocHandle,SQLColAttributeW,	SQLDisconnect,SQLDriverConnectW,SQLExecDirectW,SQLFetch,SQLFreeHandle,SQLGetData,	SQLGetDiagRecW,SQLMoreResults,	SQLNumResultCols,	SQLSetEnvAttr.
+
+These functions would	have been utilised by	theattacker to communicate with	the Nate and CyWorld	user databases and thereby,	 to obtain the personaldetails.
+
+The RAT can not only access and query	databases but	 can also	 enumerate the networks towhich	 the infected	 computer is	 connected,	 set	 up	network connections, modify	 the registry, lock theworkstation's screen, control processes and services
+
+33 SQL instructions	 are used	 to query certain types of databasesand	obtain information from them.
+
+running on the computer, download files, createfiles,	 take screenshots and shutdown,	 reboot or log	out	 of the computer. The RAT	 has four differentoperating modes; SMI (Install),	 SMU (Uninstall),SMRAC (Run as Console) and SMRACU (Run	 asConsole User).	(Hauri ­ Response Team,	2011)
+
+A complete list of strings obtained through staticanalysis	 of	 the malware is provided in Annex	 A.These strings give additional insight	 into	 the RAT	and	its behaviour.	Of note, a unique string is presentwhich	 may	 be used	 to	 associate ‘nateon.exe’ withother malware.	 This	 string is	 ‘CONFIG DESTORY!’and	is	 contained	 within the malware in anobfuscated form.	The string	is	displayed	in a pop­up	window if an integrity check the malware performson its configuration fails.	
+
+The RAT	 employs some basic obfuscationtechniques.	 All strings are obfuscated in memory	and	 only	 decoded	 when they	 need	 to	 be used,thereby	 making	 static analysis	 more difficult.	 Inaddition,	 unnecessary	 operations are inserted	 atfrequent	 intervals throughout	 the code.	 The prolificuse of	 unnecessary	 operations is	 likely	 to	 makereverse engineering more difficult	 and	 potentiallyindicates that	 the malware is	 polymorphic34.	 TheRAT,	while in some ways sophisticated,	still hides inplain sight	– limiting	its scope for obfuscation.
+
+Communications
+
+The RAT attempts communications to	 a command	and	 control server located using	 a callback domain.	It	 also	 creates a raw socket	 and	 binds	 it	 to	 theinfected computer’s local IP address (as assigned tothe computer’s network interface card).	 This	 is	 not,	however,	for the RAT	 to	accept inbound	connectionrequests. The socket is	 configured by the RAT	 insuch	a way	that	it	acts as a packet	sniffer,	 whereby,the RAT receives a copy	of all inbound and	outbound	network traffic on the bound	 interface. As well asenabling	deep inspection of	this network traffic,	thecapability	 could	 allow the RAT	 to	 passively	 receivecommands	on any	port using	any	protocol.
+
+Before attempting	 communications
+
+thecommand	 and	 control server, the malware checksfor network connectivity.	 It does this by using	 the
+
+34 Polymorphic programs	can be modified	(or modify themselves)to have a different file hash	and/or size while retaining the samefunctionality. This facilitates code reuse by making signaturebased	detection more difficult.
+
+PAGE 6 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+Microsoft
+
+domainlegitimate‘download.windowsupdate.com’.legitimatedomain is	 hardcoded	 into the malware but	 may	 beoverriddenmalware’sconfiguration.
+
+WindowsThis
+
+by modifying
+
+callback
+
+determined	the
+
+theremalwarethe
+
+Having	networkconnectivity,establishesdomaincommunications with	‘nateon.duamlive.com'35 on TCP	port	 80	(configuredas noted	 previously).	 Communications occur	 overthe HyperText	 Transfer Protocol (HTTP)	 protocol –a protocol commonly	 used	 on TCP port	 80	 forwebsite browsing.	 The malware appears to	 beproxy­aware and capable of	 communicating via aweb proxy.
+
+The following	malformed	user­agent36 is	present	in the HTTP requests (spaces shown here as ‘·’):	‘Mozilla/4.0·(compatible;·MSIE·6.0;·Windows·NT·5.1;SV1;’.
+
+This	 user­agent	 is	 consistent	 with	 that	 whichmay	be expected from a user running version 6.0 of	the Microsoft	Internet	Explorer web browser on theMicrosoft Windows XP	operating	system, except that	it	is	 missing	 a closing	 bracket	 after the last	semicolon and	 a space after the second	 to	 last	semicolon. This	malformed	 user­agent	is	hardcoded	and	 can be used	 as a signature to detect	 HTTPcommunications produced	by	the malware.	
+
+Four custom	 headers are also	 present in the‘X­Status’,	 ‘X­Size’,	 and	HTTP requests:	 ‘X­Session’,‘X­Sn’.is	requested	The‘/update?product=windows’.	 These custom headersand	 the file path	 may	 also	 be used	 to	 develop	signaturesRAT’sdetectionforcommunications.
+
+path	
+
+Once the malware successfully	 contacted	 thecommand	 and	 control server, the attacker wouldhave been able to give it	 instructions to access theNate and Cyworld databases and to send data fromthem back to	a location the attacker could	access.
+
+The name of	 the malware and	 the name of	 theselected	 callback domain were presumably	 chosen
+
+35 Multiple sources	 confirm the malware used	 in the hack	 calledback	 to 'nateon.duamlive.com'. (Samsung	 IDC 2011) (Birdman,2011)36 User­agents	 are used in HTTP	 communications	 to tellwebservers	 which operating	 system and	 web browser theirclients	are using, so they can serve compatible webpages.
+
+by	the attackers to	disguise them	as being associated	with	 NateOn ­ an Instant	 Messaging	 Service owned	by	 SK Communications. Legitimate files developedby	SK	Communications are also	known by	the name‘nateon.exe'37.
+
+THE MALICIOUS INFRASTRUCTURE
+
+Callback domains are translated	 to IP addressesusing	 the Domain Name System	 (DNS)38 protocol.	This	translates the domain into	a unique address onthe Internet which	 infected	 computers can use to	locate and communicate with	 a command	 and	control server. Command and	 control servers aretypically	 more resource intensive to	 set	 up	 andmaintain than callback domains which	may	be used	to	 direct	 communicationsis not	uncommon for multiple domains to	 identify	 thesame command	and	control infrastructure.
+
+to them.	 It	
+
+In	 late July	 2011, at	 the time of the attack,	 thecallback domain ‘nateon.duamlive.com’ pointed tothe South	 Korean IP address 121.78.237.135 but at	loopback IP	the time of	 writing points to	 localaddress 127.0.0.139.	Attackers quite commonly	point	a callback domain to a local loopback IP	 addresswhen they	 do	 not	 have any	 instructions for theinfected	computers using	that	domain.	This	preventsthe computers from	 unnecessarily	 contacting	 theattacker’s command	 and controlinfrastructure.	Attackers also	 quite commonly	 point a callbackdomain to	 a local loopback IP	 address when theywantcommand and controlinfrastructure from detection.
+
+to	 protect
+
+their
+
+At	 the time of	 the attack,	 the callback domain‘ro.diggfunny.com’ pointed to	 the South	 Korean IP	address 116.127.121.109. This IP	 address is in thesame IP	 address range (116.127.0.0/16) 40 as the IPaddress used	 by	 the ALTools related	 command	 andcontrol server (IP	 address 116.127.121.41).	 The IP	
+
+37 Different versions	of a legitimate file	 named	 'nateon.exe'	exist.These files	are associated	with	the NATEON Upgrader developedby SK Communications. (Mister Group n.d.)38 DNS is	 fundamental	 on the Internet. It is a form of directoryassistance to help computers	communicate with	other computers.Its use is	analogous	to a person calling	directory assistance to findout what phone number to dial	to speak	to a certain person.39 A local loopback IP	address is an address	which is not Internetor Intranet routable, ie. it can not be used by a computer tocommunicate with	another computer. When a computer attemptsto communicate with	 aitlocalcommunicates	with	itself.40 The IP address	 range 116.127.0.0/16	 is the Classless Inter­Domain Routing	IP addresses116.127.0.0	through	116.127.255.255.
+
+representation of
+
+IP	 address,
+
+loopback	
+
+(CIDR)
+
+PAGE 7 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+address range is	 allocated to	 the South	 Korean ISPHanaro	Telecom.
+
+A portion of	 the IP	 address range appears to	have been assigned by	 Hanaro	 Telecom	 to a South	Korean web hosting	 company.	 It	 is	 not	 knownwhether the two	IP	addresses used	by the attackersfall within the range used by the webhosting	company.	 It	 is	 also	 unconfirmed	 whether thatcompany is based	 in Nonhyeong	 ­ the geographicregion of the company that	 hosted	 the waypointused	in the attack.
+
+services
+
+If	 the IP	 addresses used	 by	 the attackers in therange 116.127.121.0/24 were assigned to the webis	 possible the attackershosting company,	purchased	 webhostingthecompany	to host	their command	and control serversinstead of compromising	legitimate servers. Other IP	addresses in the range are also	 associated	 withmalware41 but	 that	 malware may	 not be related	 inany	 way	 to	 the SK Communications hack or theattackers involved	in the hack.
+
+through
+
+theto	
+
+South Korean
+
+In	 late July	 2011,	 at	 around	 the time of	 theattack,	callback domain ‘update.alyac.org’pointedaddressthethe202.30.224.240.	 As at	 the time of	 writing,domain now	 points to	 the legitimate Google IPaddress 8.8.8.8.	 This	 is	 not an indication that	 theGoogle IP address is compromised, and the Google IPaddress is unlikely	to	be compromised.	
+
+The Google IP	 address is	 likely	 only	 used toindicate that	the attacker has no	instructions for themalware or to	instruct the malware to	continue with	pre­programmed behaviour. The malware likely	haslogic	built	in which	prevents it	from	communicating	with	 the Google IP address.	 Use of	 the Google IPaddress would	 likely	 achieve the attacker’s desired	outcome in a similar way	 to use of	a local loopbackIP	 address.	 It	 would,	 however, be less likely	 to	 flag	the activity to	network defenders42.	
+
+It	is	also	possible the Google IP address is usedto	 channel covert communications to the command
+
+and	control server over the DNS	protocol43,	in effect,	using	 Google as a voluntary	 waypoint	 without	actually	compromising Google’s infrastructure.	
+
+Each	 of	 the three callback domains has a Time­To­Live (TTL) 44 of 30 minutes, allowing	theattackers to rapidly	 change the command andcontrol server pointed	to	by	the callback domain.
+
+Registration Information
+
+The domain ‘duamlive.com’ was registered on 21	May	2011. It was registered by	a ‘Guangming	Wang’.	There is	 a large number of	 domain registrations(approximately	 400) associated	 with ‘GuangmingWang’,	 possibly indicating that	 the domains wereregistered by an intermediary.	
+
+domain
+
+The domain ‘alyac.org’ was registered	 on 24September2010.	registrationto	 that	 of	 theinformation is	 almost	 identicallegitimate ESTsoft	domain ‘alyac.com’.	The domain is	not,	 however,	 associated	 with	 the ALYac antivirussoftware and does not appear to be associated with	ESTsoft at	 all.	 The title of the website previously	hosted at	 ‘alyac.org’ was associated	 with finance,insurance and	 cell phones and	 not antivirussoftware45.
+
+At	 the time of writing, the malicious domain‘alyac.org’ points to the Google IP	address 8.8.8.8 but	previously	 pointed	 to	 South Korean IP	 address222.122.20.241.	 Other probable malicious domainsfollowing	 a similar pattern to	 ‘alyac.org’ (whereby	they	 disguise themselves as being	 associated	 withlegitimate software companies) have also	pointed	tothe same South	Korean IP address.	These include thedomainsand‘bomuls.com’.	
+
+‘trendmicros.net’,	
+
+‘nprotects.org’
+
+The domain ‘trendmicros.net’ was purportedly	registered by Trend	 Micro	 Inc.	 The registrationdetails are almost identical to	 that of the legitimatedomain ‘trendmicro.com’.	 The domain,	 however,	appears to	 have nothing	 to	 do	 with	 the securitycompany.	 The malicious domain ‘nprotects.org’ issimilar to	 that	 of	 the legitimate security	 company
+
+41 The command	 and	 control	 servers	 of dozens	 of pieces	 ofmalware have used IP addresses within the IP address	 range116.127.121.0/24. (Malc0de.com n.d.)42 Use ofin combination withIP addresses	legitimatepreprogramed	 logic to prevent a communication with	 commandand	 control	 infrastructure is	 a much	 less common indicator ofmalicious	activity than use of a local	loopback	IP	address for thesame purpose.
+
+43 The malware could use a similar technique to software such	asiodine. (Kryo, 2010)44 The TTL	of a domain in a DNS record	refers to the duration forwhich	the DNS result	can be cached.45 A webpage previously hosted	 at 'alyac.org'	 had a title of 'CashAdvance |	 Debt Consolidation |	 Insurance |	 Free Credit Report |Cell Phones	at alyac.org’. (Domain Tools, LLC, 2011)
+
+PAGE 8 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+The domain ‘diggfunny.com’ was registered	 on14	April 2011 by a ‘Lee Cooper’.	The same registrantdetails were used	to	register several other domains.	These domains include ‘edsplan.com’, ‘ezxsoft.com‘,‘finalcover.com’,	‘mindplat.com’,	‘projectxz.com’,	and‘soucesp.com’ ­ all of which were registered on 14	April 2011. The domains‘daumfan.com’ and‘natefan.com’ were also	 registered by ‘Lee Cooper’,	but	 on 25	 July	 2011, the day	 before the hacking	operation against	 the Nate and CyWorld	 userdatabases.	 Theregistrant	 details werepurportedly	 used to register an additional sevendomains.	 Each	 of	 these domains has a TTL of	 30	minutes.	(Domain Tools,	LLC,	2011)
+
+Google
+
+address
+
+At	 the time of writing none of	 the abovedomains registered	 by ‘Lee Cooper’ pointto	 amalicious IP address.	 The domain ‘natefan.com’points8.8.8.8,‘daumfan.com’ points to	 the Enom	 Inc47 IP	 address‘finalcover.com’ points	 to the private IP8.5.1.42,addressof	‘diggfunny.com’,‘edsplan.com’,	‘ezxsoft.com’,‘soucesp.com’‘projectxz.com’ or‘mindplat.com’,currently	 point	 to	 an IP	 address.	 This	 suggests thedomains are not	 currently	 in use,	 however,	 at	 least	one subdomain appears to	 be in current	 use asshown in Table 2.
+
+192.168.10.132
+
+nProtect (‘nprotect.com’) but	again, does not appearto	be associated	with	the company.	The domain haspreviously	 been associated	 with malware known as‘Trojan.Win32.Generic’ 46 .	 Similarly	the domainthe‘bomuls.com’legitimate software company	whose website residesat	‘bomul.com’. (ETnews,	2011)
+
+is	 not dissimilar to that of
+
+The domains referenced	above are summarised	
+
+in Table 1.	
+
+DOMAIN
+
+SUBDOMAIN
+
+IP ADDRESS(ES)
+
+DUAMLIVE.COM
+
+127.0.0.1*
+
+ALYAC.ORG
+
+NATEON.
+
+UPDATE.
+
+PATH.
+
+121.78.237.135	(KR)127.0.0.1*121.78.237.135	(KR)127.0.0.1*222.122.20.241	(KR)8.8.8.8 (US)*202.30.224.240	(KR)8.8.8.8 (US)*8.8.8.8 (US)*
+
+8.8.8.8 (US)*
+
+NPROTECTS.ORG
+
+222.122.20.241	(KR)*
+
+FILE1.
+
+TRENDMICROS.NET
+
+222.122.20.241	(KR)*
+
+220.90.209.157	(KR)222.122.20.241	(KR)*222.122.20.241	(KR)*
+
+DOWNLOAD.
+
+222.122.20.241	(KR)*
+
+BOMULS.COM
+
+DOWNLOAD.
+
+222.122.20.241	(KR)*
+
+66.249.89.104	(US)222.122.20.241	(KR)98.126.8.230	(US)*222.122.20.241	(KR)*
+
+FORUM.
+
+222.122.20.241	(KR)*
+
+* Indicates	IP	address assigned at time of writing.
+
+TABLE 1 ­ SUMMARY OF REFERENCED DOMAINS
+
+46 Malware detected	as	‘Trojan.Win32.Generic’	in May 2011 usedthe callback	domain ‘pc.nprotects.org’. (GFI SandBox, 2011)
+
+47 Enom Inc is	 a legitimate domain name registrar used	 by theattackers	to register domain names	and	also to host webpages.
+
+PAGE 9 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+DOMAIN
+
+SUBDOMAIN
+
+IP ADDRESS(ES)
+
+Title
+
+DAUMFAN.COM
+
+DIGGFUNNY.COM
+
+EDSPLAN.COM
+
+EZXSOFT.COM
+
+FINALCOVER.COM
+
+MINDPLAT.COM
+
+NATEFAN.COM
+
+PROJECTXZ.COM
+
+SOUCESP.COM
+
+8.5.1.8 (US)8.5.1.42 (US)*8.5.1.8 (US)8.5.1.42 (US)*8.8.8.8 (US)
+
+116.127.121.109	(KR)
+
+8.8.8.8 (US)61.19.250.219(TH)64.74.223.10 (US)
+
+127.0.0.1*
+
+202.30.224.240	(KR)8.8.8.8* (US)192.168.10.132*
+
+69.197.132.132	(US)127.0.0.1*218.213.229.69 (HK)218.213.229.68 (HK)*64.74.223.48 (US)
+
+8.8.8.8 (US)*
+
+8.5.1.11 (US)
+
+202.181.170.67 (HK)8.8.8.8 (US)*61.82.71.30 (KR)127.0.0.1
+
+CACHE.
+
+8.8.8.8 (US)*
+
+Cash Advance | Debt Consolidation | Insurance | Free CreditReport | Cell Phones @ domain
+
+Meta Description
+
+Find Cash Advance, Debt Consolidation and more at domain. Getthe best of Insurance or Free Credit Report, browse our section on Cell Phones or learn about Life Insurance. Domain is the sitefor Cash Advance.
+
+FIGURE 3 ­ EXAMPLE OF WEBPAGE TEMPLATE USED
+
+SIMILARITIES TO OTHER MALWARE
+
+discussed,	
+
+previously	
+
+domainis	 associated	 with	 malicious‘ro.diggfunny.com’activity.	 The domains ‘cache.mindplat.com’ and‘bbs.ezxsoft.com’ are also	 known to	 be associated	with	 malware.	 The first	 is listed	 as a maliciousdomain48 and	 the second	 was used	 as a callbackasmalwaredomainby	domain‘Trojan.Win32.AgentBypass’49‘bbs.ezxsoft.com’ also	 previously	 pointed to thesame South	 Korean IP	 address as ‘update.alyac.org’(IP	address 202.30.224.240),	further linking	it	to	theattackersSKforCommunications.	
+
+the hack into
+
+knownThe
+
+responsible
+
+* Indicates	IP	address assigned at time of writing.
+
+TABLE 2 ­ DOMAINS REGISTERED BY LEE COOPER
+
+Several of
+
+the domains registered by ‘LeeCooper’ previously	 pointed	 to	 webpages.	 Thedomain ‘mindplat.com’ previously	 pointed	 to	 anEnom Inc. server which	hosted	its	webpage. The titleand	 meta description of	 the ‘mindplat.com’ websiteis	 almost	 identical to that	 of	 the ‘alyac.org’ website.Both	 websites follow the template shown in Figure3.	The same template has also	been used	for severalother webpages and may merely	 be a templateprovided by a service provider used	 by	 theregistrants.
+
+The domains ‘natefan.com’ and ‘projectxz.com’also	previously	pointed to webpages.	The webpageswere similar to	 the ‘mindplat.com’ and	 ‘alyac.org’webpages but with different	 text.	 Again,	 thesewebpages use the same template as other webpagesand	 may	 merely	 be provided	 by	 a service provider.The presence of	 these webpages may	 indicate anattempt	 by	 the attackers to	 make the maliciousdomains appear more legitimate.
+
+respectively
+
+Even if	 ignoring	 the connection they both	 haveto	the domain ‘alyac.org’,	the two	pieces of	malwareand	‘Trojan.Win32.Generic’named‘Trojan.Win32.AgentBypass’(earlierreferenced) are still linked.	 Both	 pieces of malwarecreate a uniquely	 named directory50,	 as do	 at	 least	three other pieces of	 malware (summarised	 inAnnex	 B).	 This	the domainsfurther‘nprotects.org’ and	 ‘ezxsoft.com’,	 and	 suggests this	malware, along	 with the callback domains,	 may bepart	 of	 a broader,	 concerted	 effort	 by	 the sameattackers.
+
+links
+
+listed	 alongsideis	'cache.mindplat.com'	in a list of malicious	 web addresses.
+
+domain48 The'ro.diggfunny.com'	(CEOinIRVINE 2011).	49 Malware detected	 as	 'Trojan.Win32.AgentBypass'	 in mid	 July2011 used	 the callback	 domain 'bbs.ezxsoft.com'. (GFI SandBox2011)50 Malware analysis reports indicate both	 pieces	 of malwarecreate a directory named	‘03a075fb70d5d675f9dc26fc’	inside thesystem directory and	 a subdirectory named	(GFISandBox 2011) (GFI SandBox, 2011)
+
+‘update’.
+
+PAGE 10 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																			
+TIMELINE
+
+INSIGHTS
+
+24 September 2010The domain 'alyac.org' is registered.
+
+27 September 2010The Destory RAT is compiled.
+
+14 April 2011The domain 'diggfunny.com' is registeredalong with other domains.
+
+21 May 2011The domain 'duamlive.com' is registered.
+
+18 July 2011On or prior to this date attackerscompromise the ESTSoft ALZip updateserver.
+
+18­25 July 2011Numerous SK Communications computersbecome infected during routine ALZipsoftware updates. Attackers use their newaccess to download tools and prepare for targeting of the user database.
+
+25 July 2011The domains ‘daumfan.com’, and'natefan.com' are registered.
+
+26 ­ 28 July 2011The attackers use ‘nateon.exe’ malware andthe callback domains ‘nateon.duamlive.com’ and ‘ro.diggfunny.com’ to  access SK Communications’ Nate and CyWorld user databases, stealing the personal details ofup to 35 million users.
+
+Attackers will conduct	reconnaissance ontheir targets and	consider all sorts of	targeting options (both direct	and	indirect).Attackers may	target	a company	in order touse it as a ‘launchpad’ to	gain access to	other targets, as demonstrated	by	thetargeting of	ESTsoft's ALZip	update server.Attackers can conduct	selective targeting ­choosing	which	computers download	malicious content and	which do	not, as theyappear to	have done with	the ALZip	updateserver.	Even though two computers may	submit	anidentical request	for a file (or webpage),	they	may	not	get	the same file (or webpage)back in response.	This	behaviour reducesthe likelihood	of	malware unintentionally	going viral.	Unfortunately	it	also	hampersinvestigations by network defenders whomay	assess a file (or webpage) to be safe,	when it is	not	safe to	all users.	Attackers may	hack a computer for the solepurpose of	using	it as a ‘waypoint’ or as anintermediary	location from	where they canstore and access their tools withoutsuspicion from their targets.	This	appears to	have been the case with	the use of the CiteMedia Holding Group	webserver and theNonhyeong	based waypoint, although it	ispossible they were initially	hacked	foranother reason.Attackers may	use the same registrationinformation to	register multiple domainnames.	Such	appears to	have been the case	with	the domains registered by	‘LeeCooper’.Attackers may	register domains containingwords that	are expected	to	make them	appear less suspicious to	targets.	Such	aswith	the use of	‘nateon'and ‘alyac’ in thecallback domains used	by	infected SK	Communications computers.Attackers may	use seemingly	legitimateregistration information to	register domainnames.	Such	appears to	have been the casewith	the registration of	‘alyac.org’ and	‘trendmicros.net’.Users should	be wary	of domains which	appear to	be legitimate but	are not.	Such	as‘alyac.org’ instead of	‘alyac.com’,	
+
+PAGE 11 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+‘trendmicros.net’ instead	of	‘trendmicro.com’, ‘nprotects.org’ instead	of	‘nprotect.com’ and ‘bomuls.com’ instead	of‘bomul.com’.Even though it	is	relatively	easy	to	createnew	infrastructure,	attackers sometimesreuse infrastructure.	For example,	thedomains ‘bbs.ezxsoft.com’ and	‘update.alyac.org’ both previously	pointedto	IP	address 202.30.244.240,	and	‘alyac.org’,	‘trendmicros.net’, ‘nprotect.org’and	‘bomuls.com’ all pointed to	IP address222.122.20.241.The TTL of	domains (in DNS records)controlled	by attackers are often set	to lowvalues (such	as 30	minutes) allowing	theattackers to	rapidly	change the command	and	control server pointed	to	by a callbackdomain. This	facilitates relatively	uninterrupted access to	a target	whencommand	and	control infrastructurebecomes blocked or is	otherwiseunavailable.The use of	legitimate domains for maliciouspurposes,	familiar words	in domain namesand	of non­malicious IP	addresses in DNS	records	for malicious domains,	can makedetection of malicious activity	more difficult	and	cause network defenders to	dismissmalicious activity	(in network/system	logs	or Intrusion Detection System	alerts, inparticular) as legitimate.
+
+Adding malicious IP	addresses and domainsto	blacklists can help	prevent	maliciousactivity,	however, attackers can respond	by	merely	using	alternate infrastructureand/or callback domains.Domains and	IP addresses may	havelegitimate purposes too	and	blacklisting	them may	also	block legitimate business.	Blacklists should	be reviewed	periodically	to	ensure they	are not	blocking	legitimatebusiness unnecessarily.
+
+� Whitelists are generally	much	more
+
+effective than blacklists,	however, evenwhitelists can allow malicious activity	tooccur	to	legitimate sites that have beencompromised.	For example, as a good	security	practice,	most system	administrators would	have allowed	accessto	the ALZip	update server if they had	ALZip	software installed	on their network.	Similarly,	if a whitelist were employed	onthe targeted network but users had alegitimate need to	access the website of	theTaiwanese publishing	company,	theattacker would	likely	still have been able toaccess their toolbox.Users and	network administrators need to	continually	reassess who and	what	theytrust	on the Internet	given that	trust	relationships can be,	and increasingly	are,exploited for malicious purposes.
+
+DISCLAIMER
+
+Machine translation software has been heavily	relied	on throughout	thedevelopment of this paper.	 While data has been verified	 againstmultiple sources,	 where possible,	 Command Five Pty	 Ltd	 does notguarantee the veracity	 of	 sources or the accuracy	 of	 translation andinterpretation.	 Command	 Five Pty	 Ltd	 reminds readers to	 exercisecaution when visiting	 untrusted	 websites and/or opening untrusteddigital documents.	 Command	 Five Pty	 Ltd	 does not	 warrant	 that	 thewebsites referenced	in this paper are trustworthy.
+
+PAGE 12 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+
+REFERENCES
+
+Birdman. (2011, July	31). Xecure Lab	Blog.	Retrieved August	12,	2011,	from http://blog.xecure­
+
+lab.com/2011/07/2500.html
+
+CEOinIRVINE.	(2011,	August 17).	Information Security & US	&	Life	& Love	& Fashion & Hacking & Passion.	Retrieved	
+
+September 13,	2011,	from	http://hack3r.tistory.com/tag/Malware
+
+Command Five Pty	Ltd.	(2011,	June). Advanced Persistent Threats: A	Decade	in Review. Retrieved	September 24,
+
+2011,	from Command	Five Pty	Ltd:	http://www.commandfive.com/papers/C5_APT_ADecadeInReview.pdf
+
+Domain Tools,	LLC.	(2011). AlYAc.org ­ Al	Y Ac ­ Screenshot History.	Retrieved	September 08, 2011,	from	DomainTools:	http://www.domaintools.com/research/screenshot­history/alyac.org
+
+Domain Tools,	LLC.	(2011). Reverse	Whois Lookup | Domain Ownership Search	| Domain Tools.	Retrieved	
+
+September 22,	2011,	from	Domain Tools:	http://www.domaintools.com/research/reverse­whois/?all[]=leecooper%40korea.com&none[]=
+
+EDaily.	(2011,	August	11).	Nate	hack	related. Retrieved September 14,	2011,	from EDaily	Korean News:	
+
+http://www.edaily.co.kr/news/NewsRead.edy?SCD=DC16&newsid=02056566596346336&DCD=A01405&OutLnkChk=Y
+
+ESTsoft. (2011,	August	04). ESTsoft apology for	ALTools	security vulnerability. Retrieved	September 14, 2011, from	
+
+ESTsoft Blog:	http://blog.estsoft.co.kr/138
+
+ESTsoft. (2011,	August	05). ESTsoft news release	with	respect to	ALTools	security	vulnerability. Retrieved
+
+September 19,	2011,	from	ESTsoft Blog:	http://blog.estsoft.co.kr/139
+
+ESTsoft. (2011,	August	11). Police release	interim results on Nate	hack. Retrieved September 14, 2011, from	
+
+ESTsoft Blog:	http://blog.estsoft.co.kr/143
+
+ESTsoft. (2011,	August	04). Urgent security patches for public	ALTools products. Retrieved	September 20,	2011,	from ALTools Announcements:	http://www.altools.co.kr/Plaza/Notice_Contents.aspx?idx=828
+
+ETnews.	(2011,	August 05).	ETnews ­ Nate	hack, planned since last year? Retrieved	August	12,	2011,	from	
+
+http://www.etnews.com/news/print.html?id=201108050128
+
+GFI	SandBox. (2011, May	30).	GFI SandBox Malware Analysis Report: Backdoor.Win32.Generic. Retrieved
+
+September 22,	2011,	from	GFI	SandBox:http://xml.ssdsandbox.net/view/6c6adbd087276ae89f8262582798b708
+
+GFI	SandBox. (2011, July	15).	GFI SandBox Malware Analysis Report: Trojan.Win32.AgentBypass.	Retrieved	August
+
+25,	2011, from	http://xml.ssdsandbox.net/view/fdf2c5c2b1874efe7fd335092df2d3bc
+
+GFI	SandBox. (2011, May	29).	GFI SandBox Malware Analysis Report: Trojan.Win32.Generic!SB
+
+Trojan.Trojan.Win32.Generic.	Retrieved September 2011, 2011,	from	http://xml.ssdsandbox.net/view/bce1069dd099f15170c5fd05bae921b5
+
+GFI	Software. (2011, February	08).	CWSandbox Report By	MD5	at Sunbelt Security.	Retrieved September 22,	2011,
+
+fromhttp://www.sunbeltsecurity.com/partnerresources/cwsandbox/md5.aspx?id=e8ee9373ee6c836042e8f48d8de2dda9
+
+Goodin, D.	(2011,	August 12).	Software maker fingered in Korean hackocalypse. Retrieved	September 06, 2011,from The Register:	http://www.theregister.co.uk/2011/08/12/estsoft_korean_megahack/
+
+PAGE 13 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+
+Hauri ­ Response Team. (2011,	August	04).	SK Communications detailed analysis report of nateon.exe malware.	
+
+Retrieved	August 12,	2011,	from	http://www.hauri.co.kr/updata/SK_detail_report.pdf
+
+Hispasec Sistemas.	(2011,	September 06).	VirusTotal.	Retrieved September 22,	2011,	from
+
+http://www.virustotal.com/file­scan/report.html?id=727c5a2c3db079351a79351a79367a1d9eada072a8e19bce0a02eb680088e8eae9bd67­1315308204
+
+Hispasec Sistemas.	(2011,	August	03).	VirusTotal	­ Free online	Virus, Malware and URL Scanner. Retrieved August	
+
+12,	2011, from	http://www.virustotal.com/file­scan/report.html?id=74455d5e8f99272aec64bce106b1e8ff39a122a7d27d362a274af31ab5a4fb1e­1313643321
+
+Hispasec Sistemas.	(2011,	August	19).	VirusTotal	­ Free Online	Virus, Malware and URL Scanner. Retrieved	
+
+September 22,	2011,	from	http://www.virustotal.com/file­scan/report.html?id=74455d5e8f99272aec64bce106b1e8ff39a122a7d27d362a274af31ab5a4fb1e­1313760695
+
+Hispasec Sistemas.	(2011,	July	29).	VirusTotal	­ Free	Online	Virus, Malware and URL Scanner. Retrieved September
+
+22,	2011, from	http://www.virustotal.com/file­scan/report.html?id=74455d5e8f99272aec64bce106b1e8ff39a122a7d27d362a274af31ab5a4fb1e­1311902003
+
+Hispasec Sistemas.	(2011,	August	07).	VirusTotal	­ Free Online	Virus, Malware and URL Scanner. Retrieved	August	
+
+18,	2011, from	http://www.virustotal.com/file­scan/report.html?id=b6aecab3c07e915e27db4b4be4c32de1ffa613029818bbd1bb755653c10fbe38­1311920836
+
+Japanese IT	Promotion Agency.	(2011,	June 29). IPA/ISEC: Vulnerabilities: Security	Alert for	Vulnerability	in ALZip.
+
+Retrieved	September 18,	2011,	from	Japanese IT	Promotion Agency:http://www.ipa.go.jp/security/english/vuln/201106_alzip_en.html
+
+Jin­woo	Seo,	J.­h.	H.	(2011,	July	28).	35mn User Info Leaked in Cyber Attack	against S. Korean Portals. Retrieved	
+
+September 19,	2011,	from	MK	Business News:	http://news.mk.co.kr/english/newsRead.php?sc=30800005&cm=General&year=2011&no=491540&selFlag=sc&relatedcode=&wonNo=&sID=308
+
+JSUNPACK. (2011, July	27). jsunpack ­ a generic	JavaScript unpacker.	Retrieved	August	14,	2011,	from	
+
+http://jsunpack.jeek.org/dec/go?report=9f5addc7e0c7c57eab347ba10e9a81a032cf0daf
+
+JSUNPACK. (2011, July	27). jsunpack ­ a generic	JavaScript unpacker.	Retrieved	August	08,	2011,	from	
+
+http://jsunpack.jeek.org/dec/go?report=f84cd73dabf186607f986df98c5402a57bb58ad1
+
+JSUNPACK. (2011, July	27). jsunpack ­ a generic	JavaScript unpacker.	Retrieved	August	04,	2011,	from	http://jsunpack.jeek.org/dec/go?report=2c645b8dee2789a0d5d1c1e173ca3bb6b0d0528e
+
+Kryo. (2010,	February	6).	kryo.se: iodine	(IP­over­DNS, IPv4	over DNS	tunnel).	Retrieved	September 18, 2011, from	
+
+kryo.se:	http://code.kryo.se/iodine
+
+Malc0de.com.	(n.d.).	116.127.121	|	Malc0de	Database. Retrieved August	22, 2011, from	Malc0de Database:	
+
+http://malc0de.com/database/index.php?search=116.127.121&IP=on
+
+Microsoft.	(2007,	December 10).	A	description of Svchost.exe	in Windows XP Professional	Edition. Retrieved	September 07,	2011,	from	Microsoft	Support: http://support.microsoft.com/?kbid=314056
+
+PAGE 14 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+
+Microsoft.	(2007,	December 04).	What is a DLL? Retrieved	September 18,	2011,	from Microsoft	Support:
+
+http://support.microsoft.com/kb/815065
+
+Microsoft.	(n.d.).	Security	Center ­ Bulletins Advisories Tools	Guidance	Resources. Retrieved	September 09,	2011,	from Microsoft	Security	TechCenter: http://technet.microsoft.com/en­us/security/default
+
+Mister Group.	(n.d.).	nateon.exe	­ What is the	nateon.exe? Retrieved	September 06,	2011,	from	
+
+http://systemexplorer.net/db/nateon.exe.html
+
+Moon­young,	L.	(2011,	August	12).	Personal	information hack	traced to	Chinese IP	address. Retrieved September
+
+09,	2011, from	The Hankyoreh	Media Company:http://english.hani.co.kr/arti/english_edition/e_national/491514.html
+
+Mullaney,	C.	(2011, July	30).	Backdoor.Sogu Technical	Details	| Symantec.	Retrieved	August	18,	2011,	from	http://www.symantec.com/security_response/writeup.jsp?docid=2011­073003­5345­99
+
+National Institute of	Standards	and	Technology.	(n.d.).	National	Vulnerability	Database.	Retrieved	September 20,
+
+2011,	from http://nvd.nist.gov/home.cfm
+
+Novell.	(2011).	Novell Customer: Cite	Media Holding Group.	Retrieved	July	29,	2011,	from	
+
+http://www.novell.com/success/cite.html
+
+Parkour,	M. (2011, July	14). contagio: Jul	13 CVE­2010­2883 PDF Meeting Agenda with more Poison Ivy
+
+www.adv138mail.com |	112.121.171.94. Retrieved September 22,	2011,	from Contagiodump Blog:	http://contagiodump.blogspot.com/2011/07/jul­13­cve­2010­2883­pdf­meeting­agenda.html
+
+Samsung	IDC. (2011, August	05).	Samsung IDC	Helpdesk Notice.	Retrieved	August 12, 2011,	fromhttp://www.samsungidc.com/helpdesk/notice_view.jsp?bpd_seq=0000001532
+
+SK Communications. (n.d.).	SK	Communications ­ About Us.	Retrieved	September 06, 2011,	from
+
+http://corp.skcomms.co.kr/eng/global.htm
+
+Sung­jin,	Y.	(2011, July	28).	35m	Cyworld, Nate	users' information hacked. Retrieved	September 06,	2011,	from	Korea Herald:	http://www.koreaherald.com/lifestyle/Detail.jsp?newsMLId=20110728000881
+
+The Internet	Archive.	(2010, August	14).	Error	page. Retrieved	September 18,	2011,	from	The Internet	Archive
+
+Wayback Machine:http://web.archive.org/web/20100814135834/http://www.cph.com.tw/1jebugldgJtOAjb1wnXe8A==
+
+ThreatExpert. (2011, July	13).	ThreatExpert Report: Trojan.Win32.Scar.dysk, Bat/sdel.	Retrieved	September 22,	2011,	from http://www.threatexpert.com/report.aspx?md5=16a31aa8e7ddf66a31551840573b6575
+
+ThreatExpert. (2011, August 03).	ThreatExpert Report: Trojan.Win32.Scar.dzoc. Retrieved	September 22, 2011,from http://www.threatexpert.com/report.aspx?md5=bce1069dd099f15170c5fd05bae921b5
+
+ThreatExpert. (2011, July	29).	ThreatExpert Report: Virus.Win32.Virut.	Retrieved September 22, 2011, from	http://www.threatexpert.com/report.aspx?md5=aba9baea70825e6adf0723587f273dc4
+
+TMCnews.	(2011,	August 11).	S. Korea plans to	scrap online	real­name	system. Retrieved	September 19, 2011, from	
+
+TMCnews:	http://www.tmcnet.com/usubmit/2011/08/11/5698912.htm
+
+PAGE 15 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+
+ANNEX A
+
+LIST	OF	DEOBFUSCATED STRINGS FOUND WITHIN ‘NATEON.EXE’
+
+Strings inside ‘nateon.exe’ are stored in an obfuscated	form and only deobfuscated as,	and	while, they	are needed.This	table contains a complete list of deobfuscated strings extracted during	static binary	analysis	of the maliciousfile.	 For each	 string,	 two addresses are provided	 – the ‘Code Address’ and	 the ‘Obfuscated	 Address’. The ‘CodeAddress’ is	 the address,	 in code,	 from	 which	 the string	 deobfuscation is	 requested.	 This	 address can be used	 toefficiently	 identify wrapper functions that dynamically import system APIs (such as those used for networkcommunications),	as well as to	locate interesting	parts of the malware.	The ‘Obfuscated	Address’ is	the address,	indata,	where the obfuscated	string	is	stored.	
+
+For readability,	 the strings presented	 in the ‘Deobfuscated	 String’ column have been converted from theiroriginal formats.	Some of	the strings are stored	inside ‘nateon.exe’ as 8­bit character strings and	some as 16­bitwide character strings.	Non­printable characters have been escaped	as hexadecimal values in the form	‘<\xHH>’or ‘<\uHHHH>’.	 Trailing	 null (‘<\x00>’) characters are not	 shown.	 Standard	 escape sequences such	 as ‘\n’(newline) and	‘\r’ (carriage return) are also	used	to	improve readability.
+
+CODE	ADDRESS1000102210001071100010BB100011051000114F1000119E100011EA1000123B1000128D100012DF1000132E10001378100013F510001761100017A210001A9710001B6A10001BD610001C4710001C8A10001DA010003AD910003B2310003B8F10003C6410003CCD10003D03
+
+OBFUSCATEDADDRESS100220C0100220CC100220D8100220EC1002210010022108100221181002212C10022138100221601002216C100221B010022150100221C4100221E81002217C1002220810022214100222201002223010022190100222401002225C10022250100222681002227810022284
+
+DEOBFUSCATED STRING
+
+"LocalFree""GetOEMCP""GetCommandLineW""GetCurrentProcess""Sleep""ExitProcess""TerminateProcess""lstrcmpiW""WaitForSingleObject""SetEvent""GetLastError""CommandLineToArgvW""TlsSetValue""SeDebugPrivilege""SeTcbPrivilege""SetServiceStatus""SMI"51"SMU""SMRAC""SMRACU""RegisterServiceCtrlHandlerExW""GetProcessHeap""HeapFree""HeapAlloc""FreeLibrary""ntdll.dll52""kernel32.dll"
+
+51 SMI, SMU, SMRAC, SMRACU are the operating	 modes	 of‘nateon.exe’. (Hauri ­ Response Team, 2011)52 The strings	 with	 suffix ‘.dll’dynamically by the malware.
+
+identify modules	
+
+loaded
+
+CODE	ADDRESS10003D4610003D8A10003DC910003E0910003E4C10003E9010003ED210003F1210003F5210003F8810003FC8100040081000404810004089100040C8100041011000415110004192100047B71000480610004855100048B2100049131000496910004FC910005035100050C51000510910005137100054DE
+
+OBFUSCATEDADDRESS10022294100222A0100222B0100222BC100222C8100222D8100222E8100222F41002230010022310100223201002232C1002233C100223481002235410022360100223701002237C1002238810022394100223A0100223B8100223D0100223D8100223E0100223FC1002241410022424100224481002285C
+
+DEOBFUSCATED STRING
+
+"user32.dll""advapi32.dll""gdi32.dll""ws2_32.dll""shell32.dll""shlwapi.dll""psapi.dll""mpr.dll""wtsapi32.dll""version.dll""msvcrt.dll""wininet.dll""sfc.dll""odbc32.dll""ole32.dll""iphlpapi.dll""wsprintfA""wsprintfW""lstrlenA""lstrlenW""MultiByteToWideChar""WideCharToMultiByte""memcpy""memset""InitializeCriticalSection""DeleteCriticalSection""SetErrorMode""SeDebugPrivilege""SeTcpPrivilege""EnumServicesStatusW"
+
+PAGE 16 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																			
+CODE	ADDRESS100056C8100058541000589F100058DC100059271000596E100059B9100059F510005A4010005A8C10005AD71000602110006070100060C81000612A1000617B100061DB1000622D10006285100062E01000633B1000638A100063E21000643A1000648C100064DE1000652D1000657C100065D01000663110006766100067B9
+
+OBFUSCATEDADDRESS100228A410022C3410022C5010022C5810022C0010022C7C10022C9810022CA01002277410022CBC10022CDC100224681002249C100224B4100224CC100224E0100224F010022500100225101002251C1002252810022538100225481002255810022568100225781002258410022598100225A4100225C810022478100225D0
+
+100067D3
+
+100225D0
+
+10006862100069411000699010006AC7100076E410007ACC10007CD510007DE610007F6510007FB710007FFC1000804F100081E51000825D
+
+1002248C100225F0100225F810022600100225B41002263C1002261810022628100226501002265810022660100226681002267010022718
+
+DEOBFUSCATED STRING
+
+"QueryServiceConfig2W""CompanyName""*""FileDescription""*""FileVersion""*""ProductName""*""ProductVersion""*""CloseHandle""GetDiskFreeSpaceExW""GetVolumeInformationW""CreateDirectoryW""CreateFileW""GetFileSize""GetFileTime""WriteFile""ReadFile""SetEndOfFile""SetFileTime""SetFilePointer""FindFirstFileW""FindNextFileW""FindClose""FlushFileBuffers""lstrcpyW""CreateProcessW""memcmp""QueryDosDeviceW""\Device\Floppy<\x00><\uA4BC><\u5CD1>""\Device\Floppy<\x00><\uA4BC><\u5CD1>""GetDriveTypeW""%s""%s""*.*""SHFileOperationW""WNetCloseEnum""WNetOpenEnumW""WNetEnumResourceW""%s""%s""%s""%s""GetVersionExW""SetTcpEntry"
+
+CODE	ADDRESS100084B010008503100085441000856D100085961000875B1000884E
+
+100088F810008B1710008B5F10008B9910008BC210008BEB10008DC410008E9C
+
+10008F4610008FDE100093DD1000942F1000947E100094D2100095251000957A100095C91000962310009683100096D21000972510009779100097CE1000982C1000987B100098CA1000992310009978100099D010009A2810009D1410009D4210009D7E10009DAD10009DD610009E0510009E3910009E6B10009ECA10009F13
+
+OBFUSCATEDADDRESS100227741002277C100227641002275410022728100226F810022680
+
+100226C8100227D0100227D8100227C0100227B01002278410022708100226A4
+
+100226E0100227E0100227F81002280810022818100228281002283810022848100228741002288C100228BC100228CC100228DC100228EC100228F81002290410022910100229201002293010022940100229541002298410022A2410022A2C100229F810022A14100229CC100229E8100229A0100229BC10022A8010022A70
+
+DEOBFUSCATED STRING
+
+"*""*""System""System""System Idle Process""GetTcpTable""AllocateAndGetTcpExTableFromStack""GetExtendedTcpTable""*""*""System""System""System Idle Process""GetUdpTable""AllocateAndGetUdpExTableFromStack""GetExtendedUdpTable""WaitForMultipleObjects""GetIconInfo""DestroyIcon""OpenProcess""OpenSCManagerW""OpenServiceW""CloseServiceHandle""QueryServiceConfigW""ChangeServiceConfigW""DeleteService""StartServiceW""ControlService""CreateDCW""GetDIBits""DeleteDC""DeleteObject""ExtractIconExW""EnumProcesses""EnumProcessModules""GetModuleFileNameExW""SfcIsFileProtected""*""*""NT AUTHORITY""SYSTEM""NT AUTHORITY""SYSTEM""NT AUTHORITY""SYSTEM""*""System"
+
+PAGE 17 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+
+CODE	ADDRESS10009F4210009F6E10009F9A10009FDB1000A0201000A0641000A0A91000A0ED1000A1311000A1751000A1AF1000A1F31000A7301000A7CC1000A8051000A859
+
+1000A8AE1000A9191000A95B1000A9991000A9D81000AA131000AA521000AA8E1000AAD01000AB0E1000AB501000B4451000B6A3
+
+1000B6DB1000B70E1000B77F1000B7DD1000B83D1000B8991000B8F81000B9531000B9A21000B9F91000BA4B1000BAA01000BE371000C4921000CAFB1000CB531000CBA91000CBF3
+
+OBFUSCATEDADDRESS10022A6010022A3410022A8810022AA410022AAC10022A2410022AD010022AEC10022AF41002299810022B1010022B301002296C10022B3810022B4010022B4C
+
+10022B6810022B7010022B8C10022B9410022BB810022BC010022BDC10022BE410022C0010022C0810022C2810022CE410022CF8
+
+10022D4010022D5C10022D7410022D8410022D9810022DAC10022DBC10022DCC10022DDC10022E0810022E1810022E2810022DE810022DF810022E3810022E4810022E5810022E88
+
+DEOBFUSCATED STRING
+
+"System""System Idle Process""CompanyName""*""FileDescription""*""FileVersion""*""ProductName""*""ProductVersion""*""GetModuleInformation""*""\??\<\x00><\uFC04><\uF06C>""\SystemRoot\<\x00><\u7C84><\u98E4>""\<\x00><\uFFFD>""CompanyName""*""FileDescription""*""FileVersion""*""ProductName""*""ProductVersion""*""DISPLAY""SYSTEM\CurrentControlSet\Services\<\x00><\u90A0>ÜÐ""\Parameters<\x00><\u3858>""ServiceDll""RegOpenKeyExW""RegCreateKeyExW""RegQueryValueExW""RegSetValueExW""RegEnumKeyExW""RegCloseKey""SHCopyKeyW""SHDeleteKeyW""SHDeleteValueW""SHGetValueW""SHEnumKeyExW""SHEnumValueW""VirtualAlloc""VirtualFree""GetProcessWindowStation""SetProcessWindowStation"
+
+CODE	ADDRESS1000CC421000CC911000CCE41000CD331000CD821000CDD11000CE231000CE6D1000CEC81000CF171000CF721000CFC91000D0131000D0671000D0C91000D1361000DB811000DE8A1000E3BE1000E9AB1000EA131000EA8B1000EB1C1000EB3F1000EC3C1000EC861000ECD81000ED3F1000ED961000F0CF
+
+OBFUSCATEDADDRESS10022EA410022EB810022ECC10022EE010022EF410022F0410022F4410022F5810022F6810022F7C10022F9010022FA410022FB010022FC010022FC810022FD810022FEC100230001002301410022F3410022F2410022F141002302810022E741002303C1002304C10023060100230741002308C1002309C
+
+1000F2B1
+
+100230B8
+
+1000F38F1000FC7B1000FCD01000FD2A1000FD881000FDD71000FE291000FE7D1000FECF10010339100104B51001052B1001057D10010627
+
+100230D4100230E8100230F8100231081002311C1002312C1002313C1002315C1002319C100231701002318410023190100231AC1002314C
+
+DEOBFUSCATED STRING
+
+"CloseWindowStation""OpenInputDesktop""SetThreadDesktop""GetThreadDesktop""CloseDesktop""SetCursorPos""GetCurrentThreadId""CreateThread""CreateCompatibleDC""CreateDIBSection""SetDIBColorTable""GdiFlush""GetDeviceCaps""BitBlt""SelectObject""DISPLAY""DISPLAY""DISPLAY""DISPLAY""PostMessageA""keybd_event""mouse_event""WinSta0""OpenWindowStationW""GetTickCount""ConnectNamedPipe""CreateNamedPipeW""GetOverlappedResult""CreateEventW""\\.\pipe\a%d<\x00><\u3CC4><\u3C18><\u9C08><\u3C8A>""\\.\pipe\b%d<\x00><\u7080><\u0C17><\u4C49><\uEC10>""CMD.EXE""SQLAllocHandle"53"SQLSetEnvAttr""SQLDriverConnectW""SQLDisconnect""SQLFreeHandle""SQLExecDirectW""SQLNumResultCols""SQLMoreResults""SQLColAttributeW""SQLFetch""SQLGetData""NULL""SQLGetDiagRecW"
+
+53 The imported functions with an ‘SQL’ prefix were presumablyused	to access	the SK Communications	databases.
+
+PAGE 18 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																			
+CODE	ADDRESS100107391001078A10010808100108CC100109C810010ACC10010D3710010D9510010DE710010E3B10010EC210010F4710010FC110011044100110961001110F1001134D10011617100116431001166F100116A3100116F310011738100117A210011AE210011CAA10011D3A10011E6D10011EAD10011F8810011FE71001203D1001208C100120DB1001213610012188100121D7
+
+100122CB100123791001255F100126871001277910012C0D10012C5C10012CAB10012D0010012D5510012DAA
+
+OBFUSCATEDADDRESS100231DC100231EC100231C8100232081002323410023260100231B8100232F0100233181002337C10023330100232CC100232DC10023300100233AC1002336010023398100233D4100233E0100233E8100232A8100232B81002328C10023298100233C4100233F0100233441002340010023410100234241002343810023448100234581002347C10023488100234A4100234F8
+
+100234941002351C100234D8100234B81002346C1002356C1002359C100235B0100235CC100235E0100235F4
+
+DEOBFUSCATED STRING
+
+"ExitWindowsEx""InitiateSystemShutdownA""LockWorkStation""SeShutdownPrivilege""SeShutdownPrivilege""SeShutdownPrivilege""MessageBoxW""GetConsoleMode""SetConsoleCtrlHandler""SetConsoleScreenBufferSize""WriteConsoleInputW""GetConsoleCP""GetConsoleOutputCP""GetConsoleDisplayMode""GetConsoleCursorInfo""GetConsoleScreenBufferInfo""ReadConsoleOutputW""CMD"" ""/Q""AllocConsole""GetConsoleWindow""ShowWindow""GetStdHandle""FreeConsole""CONIN$""GenerateConsoleCtrlEvent""CONIN$""CONOUT$""CreateWindowExW""SetWindowLongW""DestroyWindow""TranslateMessage""SetTimer""KillTimer""DispatchMessageW""WTSUnRegisterSessionNotification""PeekMessageW""static""WTSRegisterSessionNotification""MsgWaitForMultipleObjectsEx""DefWindowProcW""QueryPerformanceCounter""GetFileAttributesW""ExpandEnvironmentStringsW""GetModuleFileNameW""OpenProcessToken""GetLengthSid"
+
+CODE	ADDRESS10012DF910012E5410012EA810012F0210012F59100130F110013158100132AD1001337D1001344510013465
+
+OBFUSCATEDADDRESS100236041002363010023648100236B4100236CC1002353C1002355410023588100236601002374810023758
+
+100134D4100134EA
+
+1002378C10023758
+
+1001357C100136DC
+
+1002352C100237A0
+
+10013749100137C6
+
+100237F410023820
+
+10013807
+
+10023868
+
+1001384C
+
+100238B0
+
+1001389A100138D81001390710013B5410013E1F10013EFB1001404B1001409E
+
+100140F110014219100143AE10014461100144FB1001459E
+
+100238F810023914100239301002393810023944100239501002395C10023968
+
+100239841002361C1002367010023688100236981002398C
+
+10014605
+
+100239C0
+
+10014992
+
+10023A00
+
+DEOBFUSCATED STRING
+
+"GetTokenInformation""LookupPrivilegeValueW""AdjustTokenPrivileges""GetFileVersionInfoW""VerQueryValueW""GetWindowsDirectoryW""GetSystemDirectoryW""GetComputerNameW""GetUserNameW""CLSID""SOFTWARE\CLASSES\SAFEGUI<\x00><\u40F0><\u380B>"54"CLSID""SOFTWARE\CLASSES\SAFEGUI<\x00><\u40F0><\u380B>""GetSystemTime""%2.2X%2.2X%2.2X%2.2X%2.2X%2.2X%2.2X%2.2X""%ALLUSERSPROFILE%""\Documents	and	Settings\AllUsers<\x00><\uC030><\u0848>""\Documents	and	Settings\AllUsers<\x00><\u78D8><\u6090>""\Documents	and	Settings\AllUsers<\x00><\u3818><\u20D0>""\ProgramData<\x00><\uE8A8>""\ProgramData<\x00><\uFFFD>""\<\x00><\uB898>""\*.*<\x00><\u140C>"".EXE"".EXE""\??\<\x00><\u742C><\uCC38>""\SystemRoot\<\x00><\u0808><\u5834>""\<\x00><\u18B8>""LookupAccountSidW""WTSEnumerateProcessesW""WTSFreeMemory""GetFileVersionInfoSizeW""\VarFileInfo\Translation<\x00><\uEC54><\u2C48>""\StringFileInfo\%4.4X%4.4X\%s<\x00><\uF8D8><\uE090><\u2379>""IsWow64Process"
+
+unusual	
+
+hardcoded
+
+key54‘SOFTWARE\CLASSES\SAFEGUI’	 can be used to link	 ‘nateon.exe’with the malware that has	the MD5	hash 6C6A DBD0 8727 6AE89F82	 6258 2798 B708 and	 calls back to the domain‘expre.dyndns.tv’ on TCP port 443.	 It may also be used	 as	 asignature to identify other similar malware. (GFI SandBox, 2011)
+
+registry
+
+PAGE 19 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																			
+CODE	ADDRESS100149F510014A3F10014A9110014AEE10014B46100151CE100152021001522E10015268100152A0100152CC100152F810015324100153FC1001542A10015456100155C11001561B100156561001569E100156EF100157221001575D10015790100157E11001586B1001594310015C5E10015D1510015D68100160D5
+
+OBFUSCATEDADDRESS10023A1010023A2810023A4010023A5410023A9810023AB010023ABC10023ADC10023AE410023AEC10023AF410023B041002222010023B0C10023B1C10023B3410023B5010023B5C10023B7C10023B8410023B8C10023AF410023B041002223010023A6C10023A8810023B9410023BB410023BF010023C0010023C28
+
+10016108
+
+10023C90
+
+1001613810016183100161C210016267100162B6100162C8100162E310016389100163EF1001642B1001649E100164D0
+
+10023CD810023CE010023CFC10023D1810023AF410023AF410023D3010023D4C10023D6810023D7410023D7C10023D9C
+
+DEOBFUSCATED STRING
+
+"GetCurrentProcessId""ProcessIdToSessionId""DuplicateTokenEx""SetTokenInformation""CreateProcessAsUserW"".DLL""RUNDLL32.EXE """<\x00><\u6010>""\<\x00><\u3080>""" <\x00><\u6868>""RqSkce"" ""SMRAC""UserEnv.dll""CreateEnvironmentBlock""DestroyEnvironmentBlock"".DLL""RUNDLL32.EXE """<\x00><\u843C>""\<\x00><\u68A8>""" <\x00><\uCCF4>""RqSkce"" ""SMRACU""ImpersonateLoggedOnUser""RevertToSelf""WTSGetActiveConsoleSessionId""NT AUTHORITY""MoveFileExW""GetModuleHandleA""%SystemRoot%\system32\svchost.exe ­k	LocalService<\x00><\uBC64><\uD4CC>"55"SYSTEM\CurrentControlSet\Services<\x00><\u54AC><\u8C34>""\<\x00><\uC4FC>""\Parameters<\x00><\uA8A8>""LocalService""ServiceDll""RqSkce""RqSkce""ServiceMain""LocalService"".DLL""\<\x00><\u344C>""RUNDLL32.EXE """<\x00><\u8070>"
+
+55 The ‘nateon.exe’ dropper configures	‘winsvcfs.dll’ to run insidethe trusted	operating	system process ‘svchost.exe’.
+
+CODE	ADDRESS100165191001654C10016582100165BE100165FD1001663B100166911001689E100169F310016A4A10016DAA10016E0310016E591001779C
+
+OBFUSCATEDADDRESS10023DA410023AF410023DAC1002220810023DB410023DBC10023DC410023BE010023C1410023BD010023DEC10023E0410023E1C10023E30
+
+1001791E10017956
+
+10023E9C10023E30
+
+10017A37
+
+10023E30
+
+10017BE110017C10
+
+10023EA010023E30
+
+10017C5F10017CBC10017D1510017D7410017DC610017E1810017E6A10017EB910017F08
+
+10017F6110018226100184E2100185341001856E100185A6100185D2100185FE1001862A100186F410018720
+
+10023EA410023EB410023EC410023EEC10023F1810023F4810023F5410023F6010023F74
+
+10023FA410023F2C10023FC810023FD410023FDC10023FE410023AF410023FEC100222081002401C10024030
+
+DEOBFUSCATED STRING
+
+"" <\x00><\u74AC>""RqSkce"" ""SMI"" """<\x00><\u14EC>"""<\x00><\u28E8>""DeleteFileW""GetModuleFileNameA""CreateFileA""QueryServiceStatusEx""ChangeServiceConfig2W""CreateServiceW""SOFTWARE\Microsoft\WindowsNT\CurrentVersion\SvcHost<\x00><\uA8E8><\uC40C><\uFFFD><\u9050>""""SOFTWARE\Microsoft\WindowsNT\CurrentVersion\SvcHost<\x00><\uA8E8><\uC40C><\uFFFD><\u9050>""SOFTWARE\Microsoft\WindowsNT\CurrentVersion\SvcHost<\x00><\uA8E8><\uC40C><\uFFFD><\u9050>""""SOFTWARE\Microsoft\WindowsNT\CurrentVersion\SvcHost<\x00><\uA8E8><\uC40C><\uFFFD><\u9050>""VirtualAllocEx""VirtualFreeEx""WriteProcessMemory""GetWindowThreadProcessId""GetExitCodeThread""EqualSid""FreeSid""ShellExecuteExW""SHCreateItemFromParsingName""CoCreateInstance""AllocateAndInitializeSid"".DLL"""<\x00><\u7CA4>""\<\x00><\u9C04>""" <\x00><\u1020>""RqSkce"" ""SMI""\SYSPREP<\x00><\uF8D8>""\SYSPREP.EXE<\x00><\u18B8>"
+
+PAGE 20 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																			
+CODE	ADDRESS1001881A10018836100188791001889010018B3010018B7110018BE410018C8810018D0010018D3A10018D7D10018DBB10018E1B10018E4610018E7510018EA710018FB81001903E100190B1100191121001914B10019197100191E010019219100192521001928B1001949A1001953410019558100195E41001962E100197F31001984210019891100198E3100199391001A25C
+
+OBFUSCATEDADDRESS1002405810024068100240781002406810022B681002408810023F941002409C100240BC100240C4100240D8100240E010024100100240C4100241081002411010023FB81002412C1002414C1002415810024178100241801002418810023AF4100241901002220810023ED81002419810023F08100241C8100241DC1002420410024230100242401002424C1002425C100242C8
+
+1001A419
+
+1002426C
+
+1001A66A
+
+10024288
+
+1001A9141001AA611001AA7F
+
+100241F0100236DC100236E8
+
+DEOBFUSCATED STRING
+
+CODE	ADDRESS
+
+OBFUSCATEDADDRESS
+
+DEOBFUSCATED STRING
+
+"LoadLibraryW""kernel32.dll""FreeLibrary""kernel32.dll""\<\x00><\uFFFD>""sysprep""CoInitializeEx""CRYPTBASE.DLL""\<\x00><\u5C44>""sysprep""\<\x00><\u0888>""CRYPTBASE.DLL""\<\x00><\u1020>""sysprep""\<\x00><\u8070>""sysprep.exe""CoUninitialize""CRYPTBASE.DLL"".DLL""RUNDLL32.EXE """<\x00><\uF858>""\<\x00><\u6010>""" <\x00><\uF42C>""RqSkce"" ""SMI""CreateRemoteThread""Shell_TrayWnd""FindWindowA""GetCurrentThread""SetThreadPriority""GetSystemMetrics""gethostbyname""lstrcatW""ResumeThread""QueueUserAPC""\\.\PIPE\RUN_AS_CONSOLE_USER(%d)<\x00><\u0CB4><\u40E5><\u4033><\uC0C0>""download.windowsupdate.com"56"\\.\PIPE\RUN_AS_CONSOLE(%d)<\x00><\u7000><\u78D8><\u6090><\u2828>""GlobalMemoryStatus""~MHZ""HARDWARE\DESCRIPTION\SYSTEM\CENTRALPROCESSOR\0<\x
+
+1001AB051001AB811001ABC11001AC021001AC231001AC6B1001ACA41001ACE11001ACFC1001B0D71001B11A1001B15A1001B1B41001B1F41001B22C1001B2661001B29B1001B54A1001B5991001B5F81001B677
+
+100242181002430C1002265810024314100243181002432010022658100243281002432C10024334100243401002436010023FDC1002436810023AF4100243701002221410024378100243B0100243C810024390
+
+1001BD1B
+
+10024288
+
+1001BEDB1001BF2F1001BF7E1001C0281001C0CB1001C1391001C1801001C1CC1001C2141001C2D41001C32C1001C3801001C3D41001C4311001C4891001C5101001C5E31001C6181001C6581001C6DA
+
+100243DC10024418100243F01002440C100243FC10024438100244501002446C100244881002449C100244AC100244B8100244C8100244DC100244F01002450810024514100245201002452810024534
+
+00><\u70C0><\u28FB><\u38E4><\u680B>""GetSystemDefaultLCID""%s""%s""""%s""%s""%s""""%s"".DLL""RUNDLL32.EXE """<\x00><\u5878>""\<\x00><\u9C04>""" <\x00><\u9CE4>""RqSkce"" ""SMU""RtlNtStatusToDosError""RtlDecompressBuffer""RtlCompressBuffer""RtlGetCompressionWorkSpaceSize""\\.\PIPE\RUN_AS_CONSOLE(%d)<\x00><\u7000><\u78D8><\u6090><\u2828>""TerminateThread""SetUnhandledExceptionFilter""TlsAlloc""TlsFree""TlsGetValue""ECount=%d,""EAddr=0x%p,""ECode=0x%x,""ESalF=%d""MessageBoxA""lstrcpyA""InternetOpenA""InternetOpenUrlA""InternetReadFile""InternetCloseHandle""XXXXXXXX"57"DEMO""TVT""TVT	DEMO""192.168.0.200"
+
+56 The hardcoded	 domain name ‘download.windowsupdate.com’is	used	to detect internet connectivity. This domain name can beoverridden in the malware’s	configuration.
+
+57 This	 set of hardcoded	strings, ‘XXXXXXXX’, ‘DEMO’, ‘TVT’, ‘TVTDEMO’, and ‘192.168.0.200’ are hardcoded values	 overridden bythe malware’s	configuration.
+
+PAGE 21 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+CODE	ADDRESS1001C7171001C74F1001C7BF1001CC411001CCB2
+
+OBFUSCATEDADDRESS10024534100245481002454C1002456010024570
+
+1001CD541001CD98
+
+10024594100245A4
+
+1001CDE71001CE411001CE941001CEEE1001CF3F1001CF951001CFEC1001D03B1001D0851001D45C1001D5C11001D67C1001D6B51001D6E81001D71B1001D7751001D8861001DA8F1001DB031001E16D1001E1BE1001E21A1001E2721001E2CA1001E31F1001E3761001E3CF1001E4201001EE91
+
+100245C8100245D0100245E0100245EC100245F810024608100246201002463410024648100245D8100246541002465810024678100246801002468810024658100246941002461810024628100246C8100246D4100246E81002471010024724100247481002475C10024698100246B010024774
+
+1001EF9B1001EFB6
+
+100247B0100247CC
+
+DEOBFUSCATED STRING
+
+"192.168.0.200""""CONFIG­DESTORY!"58"%2.2X""Software\SafeSvc<\x00><\uB4EC>"59"%2.2X""Software\SafeSvc<\x00><\u40F0>""socket""bind""setsockopt""shutdown""closesocket""ioctlsocket""htons""WSAGetLastError""lstrcpynA""recv""""Proxy­Authorization: Basic ""GET	""POST	""CONNECT ""Proxy­Authorization: Basic """"ntohs""inet_ntoa""ResetEvent""InternetConnectA""InternetWriteFile""HttpSendRequestExA""HttpEndRequestA""InternetSetOptionA""HttpAddRequestHeadersA""EnterCriticalSection""LeaveCriticalSection""Mozilla/4.0 (compatible; MSIE6.0; Windows NT	5.1;SV1;"60"/update?product=windows"61"POST"
+
+58 The string	 ‘CONFIG­DESTORY!’	 is	 displayed	 in a message boxwhen ‘nateon.exe’	detects	corruption in its	configuration. It can beused	as	a signature to identify similar malware.59 The unusual	 hardcoded registry key ‘Software\SafeSvc’	can beused	as	a signature to identify similar malware.60 This	 is	 the user­agent included	 in HTTP	requests	made by themalware to its	 configured	 command	 and	 control infrastructure.This	 malformed	 user­agent string	 can be used	 as	 a signature todetect malicious network	traffic.61 This is the path included in HTTP	requests made by ‘nateon.exe’to its	configured	command	and	control	infrastructure. This	stringcan be used as	a signature to detect malicious	network	activity.
+
+CODE	ADDRESS1001EFDD1001F1131001F189
+
+OBFUSCATEDADDRESS100246FC1002456010024570
+
+1001F2781001F308
+
+100247D4100247D8
+
+1001F39B1001F3BC1001F41E1001F43F1001F49B1001F4B91001F5071001F5251001F7761001F7BB1001F7FC1001F8451001F8891001F8CD1001FC5C1001FC901002032410020378100203CF1002043010020662100206C510020A04
+
+100247FC10024808100248101002481C100248241002482C100248341002483C1002484410024848100247FC1002481010024824100248341002484C10024738100248501002486C10024894100248A0100248B8100248C4100248D0
+
+10020A46
+
+100248EC
+
+10020A7A
+
+10024904
+
+10020AAE
+
+10024920
+
+10020B1010020B63
+
+1002494010024944
+
+10020C3E10020C791002124B100212C11002134E10021438100214B6
+
+10024968100249781002485C1002487C100248881002499810024988
+
+DEOBFUSCATED STRING
+
+"HttpOpenRequestA""%2.2X""Software\SafeSvc<\x00><\uB4EC>"":""Proxy­Authorization: Basic%s<\r><\n><\x00>öL""X­Session"62"%s: %d""X­Status""%s: %d""X­Size""%s: %d""X­Sn""%s: %d""""""X­Session""X­Status""X­Size""X­Sn""%s""HttpQueryInfoA""connect""getpeername""WSAIoctl""WSAGetOverlappedResult""WSAStartup""WSACleanup""CONNECT %s:%d	HTTP/1.1<\r><\n><\x00>d$""Content­length:0<\r><\n><\x00>tl""Content­Type:text/html<\r><\n><\x00>|d""Proxy­Connection: Keep­Alive<\r><\n><\x00><\u2584><\u20A7>"":""Proxy­Authorization: Basic%s<\r><\n><\x00><\u255D>""HTTP/1.0 200 ""HTTP/1.1 200 ""getsockname""WSASend""WSARecv""static""GetMessageW"
+
+62 The HTTP headers ‘X­Session’, ‘X­Status’, ‘X­Size’, and	‘X­Sn’	canbe used	 to develop stronger signatures for detection of networkactivity generated	by the malware.
+
+PAGE 22 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+																																																																																																																																						
+SUMMARY OF	MALWARE KNOWN TO CREATE THE	UNIQUELY NAMED DIRECTORY: ‘03A075FB70D5D675F9DC26FC’
+
+ANNEX B
+
+MD5 HASH16A3 1AA8 E7DD	F66A	3155 1840 573B	6575ABA9 BAEA 7082 5E6A	DF07 2358 7F27 3DC4BCE1 069D	D099 F15170C5 FD05 BAE9 21B5
+
+FILE	SIZE	(BYTES)155648
+
+3514598
+
+133632
+
+E8EE	9373 EE6C	836042E8 F48D	8DE2 DDA9FDF2 C5C2 B187 4EFE	7FD3 3509 2DF2 D3BC
+
+unknown
+
+unknown
+
+DATE(S) ANALYSED13 July 2011(ThreatExpert, 2011)29 July 2011(ThreatExpert, 2011)29 May 2011(GFI SandBox, 2011)03 August 2011(ThreatExpert, 2011)08 February 2011(GFI Software, 2011)15 July 2011(GFI SandBox, 2011)
+
+FILES CREATED$$$$$$$$mtx.batwinscard2.exezhenxiang.exewinscard.exe106140_d.battcmoniter.exe
+
+$$$$$$$$fbl.battcomoniter.exe40984_d.batwincard0.dlluxtheme.dll
+
+NETWORK	CONNECTIVITYTCP	port 1058 opened	for inbound	connectionsTCP	ports 1052 and	1053	opened	forinbound	connectionspc.nprotects.org on TCP port 80
+
+pc.nprotects.org on TCP port 80
+
+bbs.ezxsoft.com on TCP	port 80
+
+PAGE 23 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+
+
+COPYRIGHT	NOTICE
+
+Copyright © Command Five Pty	Ltd.	All rights reserved.
+
+This	 document	 is	 provided by	 the copyright holders under the licencethat	follows.	By obtaining, using,	and/or distributing this document youagree that	 you have read, understood,	 and	 agree to the terms andconditions that follow.
+
+The names and trademarks of Command Five Pty Ltd may	 not beused	in advertising or publicity	relating to this document or its	contentswithout specific,	prior,	written permission.
+
+No	permission is given for this document to be used	for commercialpurposes or as part	 of	 any	 commercial activity	 or undertaking,including,	 but	 not	 limited to,	 use in or relating	 to advertising	 orpublicity,	and/or use in support of, or as part of, any	pre­sales or salesactivities.
+
+No	permission is given to create modified or derivative works.	Youmay	 distribute this	 document	 in its original form for non­commercialpurposes in accordance with	 the other terms and	 conditions stated	herein.	 Copyright title will at all times remain with the copyrightholders.
+
+All referenced trademarks remain the property	 of	 their respective
+
+owners.
+
+THIS DOCUMENT	 IS PROVIDED	 ‘AS	 IS’ FOR INFORMATIONALPURPOSES ONLY WITH NO REPRESENTATIONS OR WARRANTIES	 OFANY KIND,INCLUDING BUT	 NOT	 LIMITED TO	 ANY WARRANTY,EXPRESS OR IMPLIED, OF MERCHANTABILITY OR FITNESS FOR APARTICULAR PURPOSE; WARRANTY OF	 NON­INFRINGEMENT,	 ORTITLE;	 NOR ANY WARRANTIES	 PERTAINING TO	 THE ACCURACY ORCOMPLETENESS OF	CONTENT.
+
+ANY OPINIONS	 EXPRESSED	 IN THIS DOCUMENT MAY CHANGEWITHOUT NOTICE AND	 ARE NOT NECESSARILY THE CONSIDEREDOPINIONS	 OF	 COMMAND	 FIVE	 PTY LTD, ITS PARTNERS,	 EMPLOYEES,OR AFFILIATE	 ORGANISATIONS.	 ANY ADVICE OFFERED	 IN THISDOCUMENT	IS OFFERED	WITHOUT WARRANTY OF ANY KIND.
+
+Command Five Pty	LtdABN:	49	149	576	670
+
+http://www.commandfive.cominfo@commandfive.com
+
+PAGE 24 OF	24COPYRIGHT ©	COMMAND FIVE PTY	LTD. ALL RIGHTS RESERVED.
+

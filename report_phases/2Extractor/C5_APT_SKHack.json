@@ -1,0 +1,143 @@
+{
+    "triplets": [
+        {
+            "Object": "server",
+            "ObjectType": "infrastrcucture",
+            "Relation": "belong-to",
+            "Subject": "ESTsoft",
+            "SubjectType": "identity",
+            "tactic": "Initial Access"
+        },
+        {
+            "Object": "server",
+            "ObjectType": "infrastrcucture",
+            "Relation": "use",
+            "Subject": "ESTsoft",
+            "SubjectType": "identity",
+            "tactic": "Initial Access"
+        },
+        {
+            "Object": "trojaned update file",
+            "ObjectType": "file",
+            "Relation": "distribute",
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "tactic": "Initial Access"
+        },
+        {
+            "Object": "Backdoor.Agent.Hza",
+            "ObjectType": "Malware",
+            "Relation": "contain",
+            "Subject": "trojaned update file",
+            "SubjectType": "file",
+            "tactic": "Initial Access"
+        },
+        {
+            "Object": "Backdoor.Agent.Hza",
+            "ObjectType": "Malware",
+            "Relation": "compromise",
+            "Subject": "SK Communications computers",
+            "SubjectType": "infrastrcucture",
+            "tactic": "Initial Access"
+        },
+        {
+            "Subject": "Backdoor.Agent.Hza",
+            "SubjectType": "Malware",
+            "Relation": "communicate-with",
+            "Object": "command and control server",
+            "ObjectType": "infrastructure",
+            "tactic": "Execution"
+        },
+        {
+            "Subject": "command and control server",
+            "SubjectType": "infrastructure",
+            "Relation": "located-at",
+            "Object": "116.127.121.41",
+            "ObjectType": "ipv4-addr",
+            "tactic": "Execution"
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "identity",
+            "Relation": "used",
+            "Object": "nateon.exe",
+            "ObjectType": "Malware",
+            "tactic": "Execution"
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "identity",
+            "Relation": "use",
+            "Object": "legitimate software update process",
+            "ObjectType": "process",
+            "tactic": "Defense Evasion"
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "identity",
+            "Relation": "deliver",
+            "Object": "trojaned update",
+            "ObjectType": "file",
+            "tactic": "Defense Evasion"
+        },
+        {
+            "Subject": "infected computers",
+            "SubjectType": "artifacts",
+            "Relation": "communicate-with",
+            "Object": "command and control server",
+            "ObjectType": "infrastrcucture",
+            "tactic": "Command and Control"
+        },
+        {
+            "Subject": "domain 'update.alyac.org'",
+            "SubjectType": "domain-name",
+            "Relation": "resolve-to",
+            "Object": "South Korean IP address 116.127.121.41",
+            "ObjectType": "ipv4-addr",
+            "tactic": "Command and Control"
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "use",
+            "Object": "infrastructure",
+            "ObjectType": "infrastrcucture",
+            "tactic": "Command and Control"
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "facilitate-theft-of",
+            "Object": "personal information",
+            "ObjectType": "data",
+            "tactic": "Command and Control"
+        },
+        {
+            "Subject": "Attackers",
+            "SubjectType": "Identity",
+            "Relation": "exfiltrate-to",
+            "Object": "waypoint",
+            "ObjectType": "Infrastrcucture",
+            "tactic": "Exfiltration"
+        }
+    ],
+    "file_name": "C5_APT_SKHack",
+    "tactic_label": true,
+    "rewrite": {
+        "Reconnaissance": "None",
+        "Resource Development": "None",
+        "Initial Access": "The attackers initially compromised a server belonging to a South Korean software company, ESTsoft, which was used to deliver software updates to customers, including SK Communications. Between July 18 and 25, 2011, the attackers modified the server to distribute a trojaned update file to SK Communications computers during routine checks for software updates. This trojaned update file contained the malware 'Backdoor.Agent.Hza', which subsequently infected over 60 SK Communications computers.",
+        "Execution": "The malware 'Backdoor.Agent.Hza', dropped by the trojaned update file, executed on the infected SK Communications computers, establishing a backdoor for the attackers. The malware communicated with a command and control server located at the South Korean IP address 116.127.121.41 on TCP port 8080. The attackers also installed additional malware named 'nateon.exe' on at least one of the infected computers, which was used to access the user databases.",
+        "Persistence": "None",
+        "Privilege Escalation": "None",
+        "Defense Evasion": "The attackers used a legitimate software update process as a means of delivering the trojaned update, effectively turning a security practice into a vulnerability. The security of software updates is usually trusted implicitly, and the exploitation of this trust relationship went undetected by SK Communications for some time.",
+        "Credential Access": "None",
+        "Discovery": "None",
+        "Lateral Movement": "None",
+        "Collection": "None",
+        "Command and Control": "The infected computers communicated with a command and control server using the domain 'update.alyac.org', which resolved to the South Korean IP address 116.127.121.41. The attackers used this infrastructure to monitor and control the infected computers, and to facilitate the theft of personal information from the user databases.",
+        "Exfiltration": "The attackers exfiltrated the personal details of up to 35 million SK Communications customers from the user databases to a waypoint, purportedly belonging to a company based in Seoul's Nonhyeon neighborhood. The personal information included names, phone numbers, home and email addresses, birth dates, gender details, user identifiers, passwords, and resident registration numbers due to South Korea's Real Name System in place at the time.",
+        "Impact": "None",
+        "Others": "None"
+    }
+}

@@ -1,0 +1,730 @@
+[
+  {
+    "name": "deliver",
+    "number": 1,
+    "description": "This Relationship describes that this Attack Pattern is used to deliver this malware instance (or family).",
+    "example": "",
+    "entityA": "attack-pattern",
+    "entityB": "malware"
+  },
+  {
+    "name": "target",
+    "number": 2,
+    "description": "This Relationship describes that this Attack Pattern typically targets the type of victim represented by the related Identity object.",
+    "example": "For example, a targets Relationship linking an Attack Pattern for SQL injection to an Identity object representing domain administrators means that the form of SQL injection characterized by the Attack Pattern targets domain administrators in order to achieve its objectives.",
+    "entityA": "attack-pattern",
+    "entityB": "identity"
+  },
+  {
+    "name": "target",
+    "number": 3,
+    "description": "This Relationship describes that this Attack Pattern typically targets the type of location represented by the related Location object.",
+    "example": "",
+    "entityA": "attack-pattern",
+    "entityB": "location"
+  },
+  {
+    "name": "target",
+    "number": 4,
+    "description": "This Relationship describes that this Attack Pattern typically targets the type of vulnerability represented by the related Vulnerability object.",
+    "example": "For example , a Relationship linking an Attack Pattern for SQL injection to a Vulnerability in blogging software means that the particular SQL injection attack exploits that vulnerability.",
+    "entityA": "attack-pattern",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "use",
+    "number": 5,
+    "description": "This Relationship describes that the related Malware is used to perform the behavior identified in the Attack Pattern.",
+    "example": "",
+    "entityA": "attack-pattern",
+    "entityB": "malware"
+  },
+  {
+    "name": "use",
+    "number": 6,
+    "description": "This Relationship describes that the related Tool is used to perform the behavior identified in the Attack Pattern.",
+    "example": "For example, a uses Relationship linking an Attack Pattern for a distributed denial of service (DDoS) to a Tool for Low Orbit Ion Cannon (LOIC) indicates that the tool can be used to perform those DDoS attacks.",
+    "entityA": "attack-pattern",
+    "entityB": "tool"
+  },
+  {
+    "name": "attributed-to",
+    "number": 7,
+    "description": "This Relationship describes that the Intrusion Set that is involved in carrying out the Campaign.",
+    "example": "",
+    "entityA": "campaign",
+    "entityB": "intrusion-set"
+  },
+  {
+    "name": "attributed-to",
+    "number": 8,
+    "description": "This Relationship describes that the Threat Actor that is involved in carrying out the Campaign.",
+    "example": "",
+    "entityA": "campaign",
+    "entityB": "threat-actor"
+  },
+  {
+    "name": "compromise",
+    "number": 9,
+    "description": "This Relationship describes that the Campaign compromises the related Infrastructure.",
+    "example": "",
+    "entityA": "campaign",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "originates-from",
+    "number": 10,
+    "description": "This Relationship describes that the Campaign originates from the related Location.",
+    "example": "For example, an originates-from relationship from the Glass Gazelle Campaign to a Location representing North America means that Glass Gazelle appears to originate from or is located in North America.",
+    "entityA": "campaign",
+    "entityB": "location"
+  },
+  {
+    "name": "target",
+    "number": 11,
+    "description": "This Relationship describes that the Campaign uses exploits targets the type of victims described by the related Identity.",
+    "example": "For example，a targets Relationship from the Glass Gazelle Campaign to an Identity describing the energy sector in the United States means that the Campaign typically carries out attacks against targets in that sector.",
+    "entityA": "campaign",
+    "entityB": "identity"
+  },
+  {
+    "name": "target",
+    "number": 12,
+    "description": "This Relationship describes that the Campaign uses exploits targets the type of victims described by the related Location.",
+    "example": "",
+    "entityA": "campaign",
+    "entityB": "location"
+  },
+  {
+    "name": "target",
+    "number": 13,
+    "description": "This Relationship describes that the Campaign uses exploits of the related Vulnerability.",
+    "example": "For example, a targets Relationship from the Glass Gazelle Campaign to a Vulnerability in a blogging platform indicates that attacks performed as part of Glass Gazelle often exploit that Vulnerability.",
+    "entityA": "campaign",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "use",
+    "number": 14,
+    "description": "This Relationship describes that attacks carried out as part of the Campaign typically use the related Attack Pattern.",
+    "example": "",
+    "entityA": "campaign",
+    "entityB": "attack-pattern"
+  },
+  {
+    "name": "use",
+    "number": 15,
+    "description": "This Relationship describes that attacks carried out as part of the Campaign typically use the related Infrastructure.",
+    "example": "",
+    "entityA": "campaign",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "use",
+    "number": 16,
+    "description": "This Relationship describes that attacks carried out as part of the Campaign typically use the related Malware.",
+    "example": "For example, a uses Relationship from the Glass Gazelle Campaign to the xInject Malware indicates that xInject is often used during attacks attributed to that Campaign.",
+    "entityA": "campaign",
+    "entityB": "malware"
+  },
+  {
+    "name": "use",
+    "number": 17,
+    "description": "This Relationship describes that attacks carried out as part of the Campaign typically use the related Tool.",
+    "example": "",
+    "entityA": "campaign",
+    "entityB": "tool"
+  },
+  {
+    "name": "mitigate",
+    "number": 19,
+    "description": "This Relationship describes that the Course of Action can mitigate (e.g. respond to a threat) the related Attack Pattern, Indicator, Malware, Vulnerability, or Tool.",
+    "example": "",
+    "entityA": "course-of-action",
+    "entityB": "attack-pattern"
+  },
+  {
+    "name": "mitigate",
+    "number": 21,
+    "description": "This Relationship describes that the Course of Action can mitigate (e.g. respond to a threat) the related Attack Pattern, Indicator, Malware, Vulnerability, or Tool.",
+    "example": "",
+    "entityA": "course-of-action",
+    "entityB": "malware"
+  },
+  {
+    "name": "mitigate",
+    "number": 22,
+    "description": "This Relationship describes that the Course of Action can mitigate (e.g. respond to a threat) the related Attack Pattern, Indicator, Malware, Vulnerability, or Tool.",
+    "example": "For example, a mitigates Relationship from a Course of Action object to a Malware object indicates that the course of action mitigates the malware.",
+    "entityA": "course-of-action",
+    "entityB": "tool"
+  },
+  {
+    "name": "mitigate",
+    "number": 23,
+    "description": "This Relationship describes that the Course of Action can mitigate (e.g. respond to a threat) the related Attack Pattern, Indicator, Malware, Vulnerability, or Tool.",
+    "example": "",
+    "entityA": "course-of-action",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "remediate",
+    "number": 24,
+    "description": "This Relationship describes that the Course of Action can be used to remediate (e.g. clean up) the malware.",
+    "example": "",
+    "entityA": "course-of-action",
+    "entityB": "malware"
+  },
+  {
+    "name": "remediate",
+    "number": 25,
+    "description": "This Relationship describes that the Course of Action can be used to remediate (e.g. clean up) the vulnerability",
+    "example": "",
+    "entityA": "course-of-action",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "located-at",
+    "number": 26,
+    "description": "This Relationship describes that the Identity is located at or in the related Location.",
+    "example": "For example, a located-at relationship from the ACME Corporation to a Location representing the United States means that ACME Corporation is located in the United States.",
+    "entityA": "identity",
+    "entityB": "location"
+  },
+  {
+    "name": "communicate-with",
+    "number": 27,
+    "description": "This Relationship documents that this infrastructure instance communicates with the defined network addressable resource.",
+    "example": "For example, a botnet could communicate with a crypto-currency mining pool. This does not mean that the pool is a part of this infrastructure.",
+    "entityA": "infrastructure",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "communicate-with",
+    "number": 28,
+    "description": "This Relationship documents that this infrastructure instance communicates with the defined network addressable resource.",
+    "example": "",
+    "entityA": "infrastructure",
+    "entityB": "ipv4-addr"
+  },
+  {
+    "name": "communicate-with",
+    "number": 29,
+    "description": "This Relationship documents that this infrastructure instance communicates with the defined network addressable resource.",
+    "example": "",
+    "entityA": "infrastructure",
+    "entityB": "ipv6-addr"
+  },
+  {
+    "name": "communicate-with",
+    "number": 30,
+    "description": "This Relationship documents that this infrastructure instance communicates with the defined network addressable resource.",
+    "example": "",
+    "entityA": "infrastructure",
+    "entityB": "domain-name"
+  },
+  {
+    "name": "communicate-with",
+    "number": 31,
+    "description": "This Relationship documents that this infrastructure instance communicates with the defined network addressable resource.",
+    "example": "",
+    "entityA": "infrastructure",
+    "entityB": "url"
+  },
+  {
+    "name": "consist-of",
+    "number": 32,
+    "description": "This Relationship documents the objects that are used to make up an infrastructure instance, such as ipv4-addr, ipv6-addr, domain-name, url. An infrastructure instance consists of zero or more objects.",
+    "example": "",
+    "entityA": "infrastructure",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "control",
+    "number": 33,
+    "description": "This Relationship describes that this infrastructure controls some other infrastructure.",
+    "example": "",
+    "entityA": "infrastructure",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "control",
+    "number": 34,
+    "description": "This Relationship describes that this infrastructure controls  a malware instance (or family).",
+    "example": "",
+    "entityA": "infrastrcucture",
+    "entityB": "malware"
+  },
+  {
+    "name": "deliver",
+    "number": 35,
+    "description": "This Relationship describes that this infrastructure is used to actively deliver a malware instance (or family).",
+    "example": "",
+    "entityA": "infrastructure",
+    "entityB": "malware"
+  },
+  {
+    "name": "have",
+    "number": 36,
+    "description": "This Relationship describes that this specific Infrastructure has this specific Vulnerability.",
+    "example": "For example, a web server may not have been patched and currently is impacted by a CVE.",
+    "entityA": "infrastructure",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "host",
+    "number": 37,
+    "description": "This Relationship describes that this infrastructure has a tool running on it or is used to passively host the tool.",
+    "example": "For example, an SSH server may be hosted on a piece of infrastructure.",
+    "entityA": "infrastructure",
+    "entityB": "tool"
+  },
+  {
+    "name": "host",
+    "number": 38,
+    "description": "This Relationship describes that this infrastructure has a malware running on it or is used to passively host the malware.",
+    "example": "",
+    "entityA": "infrastructure",
+    "entityB": "malware"
+  },
+  {
+    "name": "located-at",
+    "number": 39,
+    "description": "This Relationship describes that the infrastructure originates from the related location.",
+    "example": "For example, a located-at relationship from the Red Orca C2 infrastructure to a Location representing North America means that the Red Orca C2 Infrastructure appears to originate from or is located in North America.",
+    "entityA": "infrastructure",
+    "entityB": "location"
+  },
+  {
+    "name": "use",
+    "number": 40,
+    "description": "This Relationship describes that this infrastructure uses this other infrastructure to achieve its objectives.",
+    "example": "",
+    "entityA": "infrastructure",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "authored-by",
+    "number": 41,
+    "description": "This Relationship describes that the malware instance or family was developed by the related threat actor or intrusion set.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "threat-actor"
+  },
+  {
+    "name": "beacon-to",
+    "number": 42,
+    "description": "This Relationship describes that the malware instance or family beacons to  the related Infrastructure.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "exfiltrate-to",
+    "number": 43,
+    "description": "This Relationship describes that the malware instance or family exfiltrates data to the related Infrastructure.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "communicate-with",
+    "number": 44,
+    "description": "This Relationship documents that this malware instance (or family) communicates with (beacons to, connects to, or exfiltrated data to) the defined network addressable resource.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "ipv4-addr"
+  },
+  {
+    "name": "communicate-with",
+    "number": 45,
+    "description": "This Relationship documents that this malware instance (or family) communicates with (beacons to, connects to, or exfiltrated data to) the defined network addressable resource.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "ipv6-addr"
+  },
+  {
+    "name": "communicate-with",
+    "number": 46,
+    "description": "This Relationship documents that this malware instance (or family) communicates with (beacons to, connects to, or exfiltrated data to) the defined network addressable resource.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "domain-name"
+  },
+  {
+    "name": "communicate-with",
+    "number": 47,
+    "description": "This Relationship documents that this malware instance (or family) communicates with (beacons to, connects to, or exfiltrated data to) the defined network addressable resource.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "url"
+  },
+  {
+    "name": "control",
+    "number": 48,
+    "description": "This Relationship documents that this malware instance (or family) can control other malware which may be resident on the same system on which it is executing.",
+    "example": "it is meant to state that the malware instance or family is able to subvert or control other malware to achieve its goals.",
+    "entityA": "malware",
+    "entityB": "malware"
+  },
+  {
+    "name": "download",
+    "number": 49,
+    "description": "These Relationships document that this malware instance (or family) downloads  another malware instance. This is especially common with \"first-stage\" malware instances such as downloaders and droppers.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "malware"
+  },
+  {
+    "name": "download",
+    "number": 50,
+    "description": "These Relationships document that this malware instance (or family) downloads  another tool .",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "tool"
+  },
+  {
+    "name": "download",
+    "number": 51,
+    "description": "These Relationships document that this malware instance (or family) downloads  another  file.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "file"
+  },
+  {
+    "name": "drop",
+    "number": 52,
+    "description": "These Relationships document that this malware instance (or family) drops  another malware instance. This is especially common with \"first-stage\" malware instances such as downloaders and droppers.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "malware"
+  },
+  {
+    "name": "drop",
+    "number": 53,
+    "description": "These Relationships document that this malware instance (or family) drops   another tool .",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "tool"
+  },
+  {
+    "name": "drop",
+    "number": 54,
+    "description": "These Relationships document that this malware instance (or family) drops  another  file.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "file"
+  },
+  {
+    "name": "exploit",
+    "number": 55,
+    "description": "This Relationship documents that this malware instance or family exploits or attempts to exploit a particular vulnerability.",
+    "example": "For example, an exploits Relationship linking a malware instance or family representing a downloader to a Vulnerability for CVE-2016-0001 means that the malware instance or family exploits that vulnerability.",
+    "entityA": "malware",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "originate-from",
+    "number": 56,
+    "description": "This Relationship documents that this malware instance or family originates from a particular location.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "location"
+  },
+  {
+    "name": "target",
+    "number": 57,
+    "description": "This Relationship documents that a malware instance or family is being used to target an Identity. For malware families, this can be used to capture the full set of identities targeted by the family.",
+    "example": "Similarly, a targets Relationship linking a malware instance or family representing a downloader to an Identity representing the energy sector means that downloader is typically used against targets in the energy sector.",
+    "entityA": "malware",
+    "entityB": "identity"
+  },
+  {
+    "name": "target",
+    "number": 58,
+    "description": "This Relationship documents that a malware instance or family is being used to target an Infrastructure. For malware families, this can be used to capture the full set of  infrastructures targeted by the family.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "infrastructure,"
+  },
+  {
+    "name": "target",
+    "number": 59,
+    "description": "",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "target",
+    "number": 60,
+    "description": "This Relationship documents that a malware instance or family is being used to target a Location. For malware families, this can be used to capture the full set of i locations targeted by the family.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "location"
+  },
+  {
+    "name": "use",
+    "number": 61,
+    "description": "This Relationship documents that this malware instance or family uses the attack pattern to achieve its objectives.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "attack-pattern"
+  },
+  {
+    "name": "use",
+    "number": 62,
+    "description": "This Relationship documents that this malware instance or family uses the infrastructure to achieve its objectives.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "use",
+    "number": 63,
+    "description": "This Relationship documents that this malware instance or family uses the malware to achieve its objectives.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "malware"
+  },
+  {
+    "name": "use",
+    "number": 64,
+    "description": "This Relationship documents that this malware instance or family uses the  tool to achieve its objectives.",
+    "example": "",
+    "entityA": "malware",
+    "entityB": "tool"
+  },
+  {
+    "name": "variant-of",
+    "number": 65,
+    "description": "This Relationship is used to document that one malware instance or family is a variant of another malware instance or family.",
+    "example": "For example, a particular Zeus version 2 sample is a variant of the broader Zeus family.",
+    "entityA": "malware",
+    "entityB": "malware"
+  },
+  {
+    "name": "attributed-to",
+    "number": 66,
+    "description": "This Relationship describes that the Threat Actor's real identity is the related Identity.",
+    "example": "For example, an attributed-to Relationship from the jay-sm17h Threat Actor to the John Smith Identity means that the actor known as jay-sm17h is John Smith.",
+    "entityA": "threat-actor",
+    "entityB": "identity"
+  },
+  {
+    "name": "compromise",
+    "number": 67,
+    "description": "This Relationship describes that the Threat Actor compromises the related Infrastructure.",
+    "example": "",
+    "entityA": "threat-actor",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "host",
+    "number": 68,
+    "description": "This Relationship describes that the Threat Actor hosts the related Infrastructure (e.g. an actor that rents botnets to other threat actors).",
+    "example": "",
+    "entityA": "threat-actor",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "own",
+    "number": 69,
+    "description": "This Relationship describes that the Threat Actor owns the related Infrastructure (e.g. an actor that rents botnets to other threat actors).",
+    "example": "",
+    "entityA": "threat-actor",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "impersonate",
+    "number": 70,
+    "description": "This Relationship describes that the Threat Actor impersonates the related Identity.",
+    "example": "For example, an impersonates Relationship from the gh0st Threat Actor to the ACME Corp. Identity means that the actor known as gh0st impersonates ACME Corp.",
+    "entityA": "threat-actor",
+    "entityB": "identity"
+  },
+  {
+    "name": "located-at",
+    "number": 71,
+    "description": "This Relationship describes that the Threat Actor is located at or in the related Location.",
+    "example": "For example, a located-at relationship from the gh0st Threat Actor to a Location representing the United States means that ACME Corporation is located in the United States.",
+    "entityA": "threat-actor",
+    "entityB": "location"
+  },
+  {
+    "name": "target",
+    "number": 72,
+    "description": "This Relationship describes that the Threat Actor  targets the type of victims described by the related Identity .",
+    "example": "Similarly, a targets Relationship from the jay-sm17h Threat Actor to an Identity describing the energy sector in the United States means that John Smith often carries out attacks against targets in that sector.",
+    "entityA": "threat-actor",
+    "entityB": "identity"
+  },
+  {
+    "name": "target",
+    "number": 73,
+    "description": "This Relationship describes that the Threat Actor targets the type of victims described by the related Location.",
+    "example": "",
+    "entityA": "threat-actor",
+    "entityB": "location"
+  },
+  {
+    "name": "target",
+    "number": 74,
+    "description": "This Relationship describes that the Threat Actor uses exploits of the related Vulnerability",
+    "example": "For example, a targets Relationship from the jay-sm17h Threat Actor to a Vulnerability in a blogging platform indicates that attacks performed by John Smith often exploit that Vulnerability.",
+    "entityA": "threat-actor",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "use",
+    "number": 75,
+    "description": "This Relationship describes that attacks carried out as part of the Threat Actor typically use the related Attack Pattern.",
+    "example": "",
+    "entityA": "threat-actor",
+    "entityB": "attack-pattern"
+  },
+  {
+    "name": "use",
+    "number": 76,
+    "description": "This Relationship describes that attacks carried out as part of the Threat Actor typically use the related  Infrastructure.",
+    "example": "",
+    "entityA": "threat-actor",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "use",
+    "number": 77,
+    "description": "This Relationship describes that attacks carried out as part of the Threat Actor typically use the related Malware.",
+    "example": "For example, a uses Relationship from the jay-sm17h Threat Actor to the xInject Malware indicates that xInject is often used by John Smith.",
+    "entityA": "threat-actor",
+    "entityB": "malware"
+  },
+  {
+    "name": "use",
+    "number": 78,
+    "description": "This Relationship describes that attacks carried out as part of the Threat Actor typically use the related Tool.",
+    "example": "",
+    "entityA": "threat-actor",
+    "entityB": "tool"
+  },
+  {
+    "name": "deliver",
+    "number": 79,
+    "description": "This Relationship describes that this Tool is used to deliver a malware instance (or family).",
+    "example": "",
+    "entityA": "tool",
+    "entityB": "malware"
+  },
+  {
+    "name": "drop",
+    "number": 80,
+    "description": "This Relationship describes that this Tool is used to deliver a malware instance (or family).",
+    "example": "",
+    "entityA": "tool",
+    "entityB": "malware"
+  },
+  {
+    "name": "have",
+    "number": 81,
+    "description": "This Relationship describes that this specific Tool has this specific Vulnerability.",
+    "example": "",
+    "entityA": "tool",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "target",
+    "number": 82,
+    "description": "This Relationship documents that this Tool is being used to target this Identity.",
+    "example": "For example,a targets Relationship linking a DDoS Tool to an Identity representing the energy sector means that Tool is typically used against targets in the energy sector.",
+    "entityA": "tool",
+    "entityB": "identity"
+  },
+  {
+    "name": "target",
+    "number": 83,
+    "description": "This Relationship documents that this Tool is being used to target this Infrastructure.",
+    "example": "",
+    "entityA": "tool",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "target",
+    "number": 84,
+    "description": "This Relationship documents that this Tool is being used to target this Location.",
+    "example": "",
+    "entityA": "tool",
+    "entityB": "location"
+  },
+  {
+    "name": "target",
+    "number": 85,
+    "description": "This Relationship documents that this Tool is being used to exploit the Vulnerability.",
+    "example": "For example, a targets Relationship linking an exploit Tool to a Vulnerability for CVE-2016-0001 means that the tool exploits that vulnerability.",
+    "entityA": "tool",
+    "entityB": "vulnerability"
+  },
+  {
+    "name": "use",
+    "number": 86,
+    "description": "This Relationship describes that this Tool uses the related Infrastructure.",
+    "example": "",
+    "entityA": "tool",
+    "entityB": "infrastructure"
+  },
+  {
+    "name": "resolve-to",
+    "number": 87,
+    "description": "This Relationship describes that this Domain Name resolves to one or more IP addresses.",
+    "example": "",
+    "entityA": "domain-name",
+    "entityB": "domain-name"
+  },
+  {
+    "name": "resolve-to",
+    "number": 88,
+    "description": "This Relationship describes that this Domain Name resolves to one or more IP addresses .",
+    "example": "",
+    "entityA": "domain-name",
+    "entityB": "ipv4-addr"
+  },
+  {
+    "name": "resolve-to",
+    "number": 89,
+    "description": "This Relationship describes that this Domain Name resolves to one or more domain names.",
+    "example": "",
+    "entityA": "domain-name",
+    "entityB": "ipv6-addr"
+  },
+  {
+    "name": "resolve-to",
+    "number": 90,
+    "description": "This Relationship describes that this IPv4 Address resolves to one or more Layer 2 Media Access Control (MAC) addresses.",
+    "example": "",
+    "entityA": "ipv4-addr",
+    "entityB": "mac-addr"
+  },
+  {
+    "name": "belong-to",
+    "number": 91,
+    "description": "This Relationship describes that this IPv4 Address belongs to one or more autonomous systems (AS).",
+    "example": "",
+    "entityA": "ipv4-addr",
+    "entityB": "autonomous-system"
+  },
+  {
+    "name": "resolve-to",
+    "number": 92,
+    "description": "This Relationship describes that this IPv6 Address resolves to one or more Layer 2 Media Access Control (MAC) addresses.",
+    "example": "",
+    "entityA": "ipv6-addr",
+    "entityB": "mac-addr"
+  },
+  {
+    "name": "belong-to",
+    "number": 93,
+    "description": "This Relationship describes that this IPv6 Address belongs to one or more autonomous systems (AS).",
+    "example": "",
+    "entityA": "ipv6-addr",
+    "entityB": "autonomous-system"
+  }
+]

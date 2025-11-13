@@ -1,0 +1,401 @@
+[
+  {
+    "name": "author",
+    "number": 1,
+    "description": "",
+    "example": ""
+  },
+  {
+    "name": "CTI vender",
+    "number": 2,
+    "description": "",
+    "example": ""
+  },
+  {
+    "name": "date",
+    "number": 3,
+    "description": "",
+    "example": ""
+  },
+  {
+    "name": "attack-pattern",
+    "number": 4,
+    "description": "Attack Patterns are a type of TTP that describe ways that adversaries attempt to compromise targets. Attack Patterns are used to help categorize attacks, generalize specific attacks to the patterns that they follow, and provide detailed information about how attacks are performed. An example of an attack pattern is \"spear phishing\": a common type of attack where an attacker sends a carefully crafted e-mail message to a party with the intent of getting them to click a link or open an attachment to deliver malware. Attack Patterns can also be more specific; spear phishing as practiced by a particular threat actor (e.g., they might generally say that the target won a contest) can also be an Attack Pattern.",
+    "example": {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061",
+      "created": "2016-05-12T08:17:27.000Z",
+      "modified": "2016-05-12T08:17:27.000Z",
+      "name": "Spear Phishing",
+      "description": "...",
+      "external_references": [
+        {
+          "source_name": "capec",
+          "external_id": "CAPEC-163"
+        }
+      ]
+    }
+  },
+  {
+    "name": "campaign",
+    "number": 5,
+    "description": "A Campaign is a grouping of adversarial behaviors that describes a set of malicious activities or attacks (sometimes called waves) that occur over a period of time against a specific set of targets.",
+    "example": {
+      "type": "campaign",
+      "spec_version": "2.1",
+      "id": "campaign--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "created": "2016-04-06T20:03:00.000Z",
+      "modified": "2016-04-06T20:03:00.000Z",
+      "name": "Green Group Attacks Against Finance",
+      "description": "Campaign by Green Group against a series of targets in the financial services sector."
+    }
+  },
+  {
+    "name": "course-of-action",
+    "number": 6,
+    "description": "A Course of Action is an action taken either to prevent an attack or to respond to an attack that is in progress.",
+    "example": {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "created": "2016-04-06T20:03:48.000Z",
+      "modified": "2016-04-06T20:03:48.000Z",
+      "name": "Add TCP port 80 Filter Rule to the existing Block UDP 1434 Filter",
+      "description": "This is how to add a filter rule to block inbound access to TCP port 80 to the existing UDP 1434 filter ..."
+    }
+  },
+  {
+    "name": "identity",
+    "number": 7,
+    "description": "Identities can represent actual individuals, organizations, or groups (e.g., ACME, Inc.) as well as classes of individuals, organizations, systems or groups (e.g., the finance sector).",
+    "example": {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--023d105b-752e-4e3c-941c-7d3f3cb15e9e",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "created": "2016-04-06T20:03:00.000Z",
+      "modified": "2016-04-06T20:03:00.000Z",
+      "name": "John Smith",
+      "identity_class": "individual"
+    }
+  },
+  {
+    "name": "infrastrcucture",
+    "number": 8,
+    "description": "The Infrastructure represents a type of TTP and describes any systems, software services and any associated physical or virtual resources intended to support some purpose (e.g., C2 servers used as part of an attack, device or server that are part of defense, database servers targeted by an attack, etc.)",
+    "example": {
+      "type": "infrastructure",
+      "spec_version": "2.1",
+      "id": "infrastructure--38c47d93-d984-4fd9-b87b-d69d0841628d",
+      "created": "2016-05-07T11:22:30.000Z",
+      "modified": "2016-05-07T11:22:30.000Z",
+      "name": "Poison Ivy C2",
+      "infrastructure_types": [
+        "command-and-control"
+      ]
+    }
+  },
+  {
+    "name": "Location",
+    "number": 9,
+    "description": "A Location represents a geographic location. The location may be described as any, some or all of the following: region (e.g., North America), civic address (e.g. New York, US), latitude and longitude.",
+    "example": {
+      "type": "location",
+      "spec_version": "2.1",
+      "id": "location--a6e9345f-5a15-4c29-8bb3-7dcc5d168d64",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "created": "2016-04-06T20:03:00.000Z",
+      "modified": "2016-04-06T20:03:00.000Z",
+      "latitude": "48.8566",
+      "longitude": "2.3522"
+    }
+  },
+  {
+    "name": "Malware",
+    "number": 10,
+    "description": "Malware is a type of TTP that represents malicious code. It generally refers to a program that is inserted into a system, usually covertly. The intent is to compromise the confidentiality, integrity, or availability of the victim's data, applications, or operating system (OS) or otherwise annoy or disrupt the victim.",
+    "example": {
+      "type": "malware",
+      "spec_version": "2.1",
+      "id": "malware--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061",
+      "created": "2016-05-12T08:17:27.000Z",
+      "modified": "2016-05-12T08:17:27.000Z",
+      "name": "Cryptolocker",
+      "description": "A variant of the cryptolocker family",
+      "malware_types": [
+        "ransomware"
+      ],
+      "is_family": false
+    }
+  },
+  {
+    "name": "threat-actor",
+    "number": 11,
+    "description": "Threat Actors are actual individuals, groups, or organizations believed to be operating with malicious intent. A Threat Actor is not an Intrusion Set but may support or be affiliated with various Intrusion Sets, groups, or organizations over time.",
+    "example": {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "created": "2016-04-06T20:03:48.000Z",
+      "modified": "2016-04-06T20:03:48.000Z",
+      "threat_actor_types": [
+        "crime-syndicate"
+      ],
+      "name": "Evil Org",
+      "description": "The Evil Org threat actor group",
+      "aliases": [
+        "Syndicate 1",
+        "Evil Syndicate 99"
+      ],
+      "roles": [
+        "director"
+      ],
+      "goals": [
+        "Steal bank money",
+        "Steal credit cards"
+      ],
+      "sophistication": "advanced",
+      "resource_level": "team",
+      "primary_motivation": "organizational-gain"
+    }
+  },
+  {
+    "name": "tool",
+    "number": 12,
+    "description": "Tools are legitimate software that can be used by threat actors to perform attacks. Knowing how and when threat actors use such tools can be important for understanding how campaigns are executed. Unlike malware, these tools or software packages are often found on a system and have legitimate purposes for power users, system administrators, network administrators, or even normal users. Remote access tools (e.g., RDP) and network scanning tools (e.g., Nmap) are examples of Tools that may be used by a Threat Actor during an attack.",
+    "example": {
+      "type": "tool",
+      "spec_version": "2.1",
+      "id": "tool--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "created": "2016-04-06T20:03:48.000Z",
+      "modified": "2016-04-06T20:03:48.000Z",
+      "tool_types": [
+        "remote-access"
+      ],
+      "name": "VNC"
+    }
+  },
+  {
+    "name": "vulnerablity",
+    "number": 13,
+    "description": "A Vulnerability is a weakness or defect in the requirements, designs, or implementations of the computational logic (e.g., code) found in software and some hardware components (e.g., firmware) that can be directly exploited to negatively impact the confidentiality, integrity, or availability of that system.",
+    "example": {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061",
+      "created": "2016-05-12T08:17:27.000Z",
+      "modified": "2016-05-12T08:17:27.000Z",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "name": "CVE-2016-1234",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2016-1234"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Tactic",
+    "number": 14,
+    "description": "",
+    "example": ""
+  },
+  {
+    "name": "Technique",
+    "number": 15,
+    "description": "",
+    "example": ""
+  },
+  {
+    "name": "artifacts",
+    "number": 16,
+    "description": "The Artifact object permits capturing an array of bytes (8-bits), as a base64-encoded string, or linking to a file-like payload. One of payload_bin or url MUST be provided. It is incumbent on object creators to ensure that the URL is accessible for downstream consumers.",
+    "example": ""
+  },
+  {
+    "name": "autonomous-system",
+    "number": 17,
+    "description": "In the Internet, an autonomous system (AS) is a small unit that has the power to autonomously determine the various routing protocols that should be used within the system",
+    "example": {
+      "type": "autonomous-system",
+      "spec_version": "2.1",
+      "id": "autonomous-system--f720c34b-98ae-597f-ade5-27dc241e8c74",
+      "number": 15139,
+      "name": "Slime Industries",
+      "rir": "ARIN"
+    }
+  },
+  {
+    "name": "directory",
+    "number": 18,
+    "description": "The Directory object represents the properties common to a file system directory.",
+    "example": {
+      "type": "directory",
+      "spec_version": "2.1",
+      "id": "directory--93c0a9b0-520d-545d-9094-1a08ddf46b05",
+      "path": "C:\\Windows\\System32"
+    }
+  },
+  {
+    "name": "domain-name",
+    "number": 19,
+    "description": "A Domain Name, also known as a domain, is the name of a computer or group of computers on the Internet, separated by a series of dots, used to locate the computer during data transmission (sometimes also referring to a geographical location).",
+    "example": {
+      "type": "domain-name",
+      "spec_version": "2.1",
+      "id": "domain-name--3c10e93f-798e-5a26-a0c1-08156efab7f5",
+      "value": "example.com",
+      "resolves_to_refs": [
+        "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd"
+      ]
+    }
+  },
+  {
+    "name": "email-address",
+    "number": 20,
+    "description": "The Email Address object represents a single email address.",
+    "example": {
+      "type": "email-addr",
+      "spec_version": "2.1",
+      "id": "email-addr--2d77a846-6264-5d51-b586-e43822ea1ea3",
+      "value": "john@example.com",
+      "display_name": "John Doe"
+    }
+  },
+  {
+    "name": "Email Message",
+    "number": 21,
+    "description": "The Email Message object represents an instance of an email message, corresponding to the internet message format described in [RFC5322] and related RFCs.",
+    "example": ""
+  },
+  {
+    "name": "file",
+    "number": 22,
+    "description": "A computer file, also known as a computer file, is a stream of data that is stored in some kind of long-term storage device or temporary storage device and is managed by a computer file system.",
+    "example": {
+      "type": "file",
+      "spec_version": "2.1",
+      "id": "file--e277603e-1060-5ad4-9937-c26c97f1ca68",
+      "hashes": {
+        "SHA-256": "fe90a7e910cb3a4739bed9180e807e93fa70c90f25a8915476f5e4bfbac681db"
+      },
+      "size": 25536,
+      "name": "foo.dll"
+    }
+  },
+  {
+    "name": "ipv4-addr",
+    "number": 23,
+    "description": "The IPv4 Address object represents one or more IPv4 addresses expressed using CIDR notation.",
+    "example": {
+      "type": "ipv4-addr",
+      "spec_version": "2.1",
+      "id": "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+      "value": "198.51.100.3"
+    }
+  },
+  {
+    "name": "ipv6-addr",
+    "number": 24,
+    "description": "The IPv6 Address object represents one or more IPv6 addresses expressed using CIDR notation.",
+    "example": {
+      "type": "ipv6-addr",
+      "spec_version": "2.1",
+      "id": "ipv6-addr--1e61d36c-a16c-53b7-a80f-2a00161c96b1",
+      "value": "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+    }
+  },
+  {
+    "name": "mac-addr",
+    "number": 25,
+    "description": "MAC address Media Access Control Address (Media Access Control Address), also known as LAN Address, MAC Address, Ethernet Address or Physical Address. It is an address used to confirm the location of network devices.",
+    "example": {
+      "type": "mac-addr",
+      "spec_version": "2.1",
+      "id": "mac-addr--65cfcf98-8a6e-5a1b-8f61-379ac4f92d00",
+      "value": "d2:fb:49:24:37:18"
+    }
+  },
+  {
+    "name": "process",
+    "number": 26,
+    "description": "Process is a running activity of a computer program on a certain data set, which is the basic unit of resource allocation by the system and the basis of the operating system structure.",
+    "example": {
+      "type": "file",
+      "spec_version": "2.1",
+      "id": "file--edb1ebee-4387-41cc-943b-f94fd491118c",
+      "name": "gedit-bin",
+      "hashes": {
+        "SHA-256": "aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f"
+      }
+    }
+  },
+  {
+    "name": "software",
+    "number": 27,
+    "description": "Software is a collection of computer data and instructions organized in a specific order.",
+    "example": {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a1827f6d-ca53-5605-9e93-4316cd22a00a",
+      "name": "Word",
+      "cpe": "cpe:2.3:a:microsoft:word:2000:*:*:*:*:*:*:*",
+      "version": "2002",
+      "vendor": "Microsoft"
+    }
+  },
+  {
+    "name": "url",
+    "number": 28,
+    "description": "A URL is a representation on the Internet's World Wide Web services program used to specify the location of information.",
+    "example": {
+      "type": "url",
+      "spec_version": "2.1",
+      "id": "url--c1477287-23ac-5971-a010-5c287877fa60",
+      "value": "https://example.com/research/index.html"
+    }
+  },
+  {
+    "name": "registy",
+    "number": 29,
+    "description": "The Registry Key object represents the properties of a Windows registry key.",
+    "example": {
+      "type": "windows-registry-key",
+      "spec_version": "2.1",
+      "id": "windows-registry-key--9d60798d-4e3e-5fe4-af8a-0e4986f0f90b",
+      "key": "HKEY_LOCAL_MACHINE\\System\\Foo\\Bar"
+    }
+  },
+  {
+    "name": "network trafic",
+    "number": 30,
+    "description": "The Network Traffic object represents arbitrary network traffic that originates from a source and is addressed to a destination. The network traffic MAY or MAY NOT constitute a valid unicast, multicast, or broadcast network connection. This MAY also include traffic that is not established, such as a SYN flood.",
+    "example": ""
+  },
+  {
+    "name": "X.509 Certificate",
+    "number": 31,
+    "description": "The X.509 Certificate object represents the properties of an X.509 certificate, as defined by ITU recommendation X.509",
+    "example": ""
+  },
+  {
+    "name": "user-account",
+    "number": 32,
+    "description": "The User Account object represents an instance of any type of user account, including but not limited to operating system, device, messaging service, and social media platform accounts.",
+    "example": {
+      "type": "user-account",
+      "spec_version": "2.1",
+      "id": "user-account--9bd3afcf-deee-54f9-83e2-520653cb6bba",
+      "user_id": "thegrugq_ebooks",
+      "account_login": "thegrugq_ebooks",
+      "account_type": "twitter",
+      "display_name": "the grugq"
+    }
+  }
+]

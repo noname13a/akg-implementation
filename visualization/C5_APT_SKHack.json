@@ -1,0 +1,360 @@
+{
+    "triplets": [
+        {
+            "Subject": "Kaspersky's Firmware Scanner",
+            "SubjectType": "CTI vender",
+            "Relation": "detect",
+            "Object": "UEFI firmware-level compromise",
+            "ObjectType": "compromise",
+            "tactic": "Initial Access",
+            "technique": [
+                "T1200-Hardware Additions"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "modify",
+            "Object": "UEFI firmware",
+            "ObjectType": "software",
+            "tactic": "Initial Access",
+            "technique": [
+                "T1200-Hardware Additions"
+            ],
+            "SentenceNums": [
+                1
+            ]
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "embed",
+            "Object": "MoonBounce",
+            "ObjectType": "Malware",
+            "tactic": "Initial Access",
+            "technique": [
+                "T1200-Hardware Additions"
+            ],
+            "SentenceNums": [
+                2
+            ]
+        },
+        {
+            "Subject": "MoonBounce implant",
+            "SubjectType": "Malware",
+            "Relation": "incorporate into",
+            "Object": "CORE_DXE component of the UEFI firmware",
+            "ObjectType": "software",
+            "tactic": "Execution",
+            "technique": [
+                "T1129-Shared Modules"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "Attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "set hooks",
+            "Object": "functions like AllocatePool, CreateEventEx, and ExitBootServices",
+            "ObjectType": "software",
+            "tactic": "Execution",
+            "technique": [
+                "T1129-Shared Modules"
+            ],
+            "SentenceNums": [
+                2
+            ]
+        },
+        {
+            "Subject": "MoonBounce implant",
+            "SubjectType": "Malware",
+            "Relation": "capable of",
+            "Object": "persisting",
+            "ObjectType": "Tactic",
+            "tactic": "Persistence",
+            "technique": [
+                "Others"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "MoonBounce implant",
+            "SubjectType": "Malware",
+            "Relation": "operate",
+            "Object": "in memory",
+            "ObjectType": "infrastrcucture",
+            "tactic": "Defense Evasion",
+            "technique": [
+                "T1542-Pre-OS Boot"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "MoonBounce implant",
+            "SubjectType": "Malware",
+            "Relation": "facilitate",
+            "Object": "fileless attack",
+            "ObjectType": "attack-pattern",
+            "tactic": "Defense Evasion",
+            "technique": [
+                "T1497-Virtualization/Sandbox Evasion"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "infection technique",
+            "SubjectType": "technique",
+            "Relation": "involve",
+            "Object": "modification of firmware component",
+            "ObjectType": "artifacts",
+            "tactic": "Defense Evasion",
+            "technique": [
+                "T1542-Pre-OS Boot"
+            ],
+            "SentenceNums": [
+                2
+            ]
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "execute",
+            "Object": "commands",
+            "ObjectType": "attack-pattern",
+            "tactic": "Lateral Movement",
+            "technique": [
+                "Others"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "APT41",
+            "SubjectType": "threat-actor",
+            "Relation": "make",
+            "Object": "intrusions",
+            "ObjectType": "attack-pattern",
+            "tactic": "Lateral Movement",
+            "technique": [
+                "Others"
+            ],
+            "SentenceNums": [
+                1
+            ]
+        },
+        {
+            "Subject": "APT41",
+            "SubjectType": "threat-actor",
+            "Relation": "intervene in",
+            "Object": "targeted companies' supply chains",
+            "ObjectType": "campaign",
+            "tactic": "Lateral Movement",
+            "technique": [
+                "Others"
+            ],
+            "SentenceNums": [
+                1
+            ]
+        },
+        {
+            "Subject": "APT41",
+            "SubjectType": "threat-actor",
+            "Relation": "steal",
+            "Object": "sensitive intellectual property",
+            "ObjectType": "artifacts",
+            "tactic": "Lateral Movement",
+            "technique": [
+                "Others"
+            ],
+            "SentenceNums": [
+                1
+            ]
+        },
+        {
+            "Subject": "APT41",
+            "SubjectType": "threat-actor",
+            "Relation": "steal",
+            "Object": "personally identifiable information",
+            "ObjectType": "artifacts",
+            "tactic": "Lateral Movement",
+            "technique": [
+                "Others"
+            ],
+            "SentenceNums": [
+                1
+            ]
+        },
+        {
+            "Subject": "user-mode malware",
+            "SubjectType": "Malware",
+            "Relation": "fetch",
+            "Object": "payload",
+            "ObjectType": "file",
+            "tactic": "Command and Control",
+            "technique": [
+                "T1104-Multi-Stage Channels"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "ScrambleCross",
+            "SubjectType": "Malware",
+            "Relation": "communicate-with",
+            "Object": "infrastructure",
+            "ObjectType": "infrastructure",
+            "tactic": "Command and Control",
+            "technique": [
+                "T1104-Multi-Stage Channels"
+            ],
+            "SentenceNums": [
+                1
+            ]
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "attempt",
+            "Object": "enumerate hosts",
+            "ObjectType": "attack-pattern",
+            "tactic": "Exfiltration",
+            "technique": [
+                "T1048-Exfiltration Over Alternative Protocol"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "attempt",
+            "Object": "gather network information",
+            "ObjectType": "attack-pattern",
+            "tactic": "Exfiltration",
+            "technique": [
+                "T1048-Exfiltration Over Alternative Protocol"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "use",
+            "Object": "Sysinternals Psexec",
+            "ObjectType": "tool",
+            "tactic": "Exfiltration",
+            "technique": [
+                "T1048-Exfiltration Over Alternative Protocol"
+            ],
+            "SentenceNums": [
+                1
+            ]
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "use",
+            "Object": "WMI",
+            "ObjectType": "tool",
+            "tactic": "Exfiltration",
+            "technique": [
+                "T1048-Exfiltration Over Alternative Protocol"
+            ],
+            "SentenceNums": [
+                1
+            ]
+        },
+        {
+            "Subject": "attackers",
+            "SubjectType": "threat-actor",
+            "Relation": "exfiltrate",
+            "Object": "data",
+            "ObjectType": "network trafic",
+            "tactic": "Exfiltration",
+            "technique": [
+                "T1048-Exfiltration Over Alternative Protocol"
+            ],
+            "SentenceNums": [
+                1
+            ]
+        },
+        {
+            "Subject": "APT41",
+            "SubjectType": "threat-actor",
+            "Relation": "attributed-to",
+            "Object": "MoonBounce attack",
+            "ObjectType": "campaign",
+            "tactic": "Others",
+            "technique": [
+                "Others"
+            ],
+            "SentenceNums": [
+                0
+            ]
+        },
+        {
+            "Subject": "APT41",
+            "SubjectType": "threat-actor",
+            "Relation": "maintain",
+            "Object": "infrastructure",
+            "ObjectType": "infrastructure",
+            "tactic": "Others",
+            "technique": [
+                "Others"
+            ],
+            "SentenceNums": [
+                2
+            ]
+        },
+        {
+            "Subject": "Vendors",
+            "SubjectType": "identity",
+            "Relation": "take",
+            "Object": "precautions",
+            "ObjectType": "course-of-action",
+            "tactic": "Others",
+            "technique": [
+                "Others"
+            ],
+            "SentenceNums": [
+                4
+            ]
+        }
+    ],
+    "file_name": "MoonBounce_ the dark side of UEFI firmware _ Securelist",
+    "tactic_label": true,
+    "rewrite": {
+        "Reconnaissance": "None",
+        "Resource Development": "None",
+        "Initial Access": "At the end of 2021, Kaspersky's Firmware Scanner detected a UEFI firmware-level compromise. The attackers modified a component within the firmware's image, allowing them to intercept the machine's boot sequence and introduce an infection chain. The UEFI firmware was tampered with to embed malicious code named MoonBounce. This implant, located on the SPI flash on the motherboard, persists across disk formatting or replacement.",
+        "Execution": "The MoonBounce implant was incorporated into the CORE_DXE component of the UEFI firmware, which is called early in the boot sequence. It initializes essential data structures and function interfaces, including the EFI Boot Services Table. Attackers set hooks to intercept functions like AllocatePool, CreateEventEx, and ExitBootServices, diverting them to malicious shellcode appended to the CORE_DXE image. This facilitates the propagation of malicious code to other boot components, introducing a malicious driver into the Windows kernel's memory address space.",
+        "Persistence": "Due to its placement on the SPI flash, the MoonBounce implant is capable of persisting in the system across disk formatting or replacement, indicating the attackers' aim to establish a longstanding foothold within the network.",
+        "Privilege Escalation": "None",
+        "Defense Evasion": "The MoonBounce implant operates in memory only, facilitating a fileless attack with a small footprint. It does not leave traces on the hard drive. The infection technique is stealthy, involving the modification of an existing firmware component rather than adding a new one, making it difficult to detect and mitigate.",
+        "Credential Access": "None",
+        "Discovery": "None",
+        "Lateral Movement": "The attackers executed commands after gaining a foothold in the network, indicating lateral movement and exfiltration of information from particular machines. This aligns with APT41's previous operations, where intrusions were made to intervene in targeted companies' supply chains or to steal sensitive intellectual property and personally identifiable information.",
+        "Collection": "None",
+        "Command and Control": "The user-mode malware deployed by MoonBounce reaches out to a hardcoded C&C URL to fetch another stage of the payload to run in memory. ScrambleCross, another non-UEFI implant found in the targeted network, communicated with the same infrastructure hosting the stager's payload.",
+        "Exfiltration": "The attackers attempted to enumerate hosts and gather network information, copy files across SMB shares, and dump the Active Directory domain database. They used tools like Sysinternals Psexec for remote command execution and WMI for remote command execution, indicating efforts to exfiltrate data.",
+        "Impact": "None",
+        "Others": "The MoonBounce attack is attributed to APT41, a Chinese-speaking threat actor. The attack was highly targeted, with the firmware rootkit detected in a single case and other affiliated malicious samples found on multiple machines in the same network. The attackers maintained infrastructure from at least March 2020, with servers still active at the end of 2021. The group continues to be active despite legal proceedings and maintains a high level of proficiency in developing its toolset. Vendors are taking precautions against UEFI threats, such as enabling Secure Boot by default. It is recommended to update UEFI firmware regularly, enable BootGuard and Trust Platform Modules, and use security products with firmware image visibility."
+    },
+    "technique_label": true
+}

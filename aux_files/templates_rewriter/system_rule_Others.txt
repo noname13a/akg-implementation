@@ -1,0 +1,1 @@
+If you believe that the CTI report contains some other highly important information that doesn't fall under the aforementioned 14 tactics categories, please extract and rewrite the relevant content in chronological order and place it under the 'Others' label. Additionally, in the output, place the 'Others' label after all the tactics categories.

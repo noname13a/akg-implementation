@@ -1,0 +1,91 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "rewrite_CTI_Report",
+      "description": "Cyber Threat Intelligence (CTI) reports typically provide a description of the progress of a cyber attack. A cyber attack encompasses 14 different tactics at a high level. Please provide a comprehensive summary of the 14 tactic labels and include the complementary label 'Others' to this function.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "Reconnaissance": {
+            "type": "string",
+            "description": "Summarization of Reconnaissance tactic in given CTI report. Set the Value to None if there are no Reconnaissance part in given CTI report"
+          },
+          "Resource Development": {
+            "type": "string",
+            "description": "Summarization of Resource Development tactic in given CTI report. Set the Value to None if there are no Resource Development part in given CTI report"
+          },
+          "Initial Access": {
+            "type": "string",
+            "description": "Summarization of Initial Access tactic in given CTI report. Set the Value to None if there are no Initial Access part in given CTI report"
+          },
+          "Execution": {
+            "type": "string",
+            "description": "Summarization of Execution tactic in given CTI report. Set the Value to None if there are no Execution part in given CTI report"
+          },
+          "Persistence": {
+            "type": "string",
+            "description": "Summarization of Persistence tactic in given CTI report. Set the Value to None if there are no Persistence part in given CTI report"
+          },
+          "Privilege Escalation": {
+            "type": "string",
+            "description": "Summarization of Privilege Escalation tactic in given CTI report. Set the Value to None if there are no Privilege Escalation part in given CTI report"
+          },
+          "Defense Evasion": {
+            "type": "string",
+            "description": "Summarization of Defense Evasion tactic in given CTI report. Set the Value to None if there are no Defense Evasion part in given CTI report"
+          },
+          "Credential Access": {
+            "type": "string",
+            "description": "Summarization of Credential Access tactic in given CTI report. Set the Value to None if there are no Credential Access part in given CTI report"
+          },
+          "Discovery": {
+            "type": "string",
+            "description": "Summarization of Discovery tactic in given CTI report. Set the Value to None if there are no Discovery part in given CTI report"
+          },
+          "Lateral Movement": {
+            "type": "string",
+            "description": "Summarization of Lateral Movement tactic in given CTI report. Set the Value to None if there are no Lateral Movement part in given CTI report"
+          },
+          "Collection": {
+            "type": "string",
+            "description": "Summarization of Collection tactic in given CTI report. Set the Value to None if there are no Collection part in given CTI report"
+          },
+          "Command and Control": {
+            "type": "string",
+            "description": "Summarization of Command and Control tactic in given CTI report. Set the Value to None if there are no Command and Control part in given CTI report"
+          },
+          "Exfiltration": {
+            "type": "string",
+            "description": "Summarization of Exfiltration tactic in given CTI report. Set the Value to None if there are no Exfiltration part in given CTI report"
+          },
+          "Impact": {
+            "type": "string",
+            "description": "Summarization of Impact tactic in given CTI report. Set the Value to None if there are no Impact part in given CTI report"
+          },
+          "Others": {
+            "type": "string",
+            "description": "Summarization of Other tactic in given CTI report, which is not included in given 14 tactics and is also valuable. Set the Value to None if there are no Others part in given CTI report"
+          }
+        },
+        "required": [
+          "Reconnaissance",
+          "Resource Development",
+          "Initial Access",
+          "Execution",
+          "Persistence",
+          "Privilege Escalation",
+          "Defense Evasion",
+          "Credential Access",
+          "Discovery",
+          "Lateral Movement",
+          "Collection",
+          "Command and Control",
+          "Exfiltration",
+          "Impact",
+          "Others"
+        ]
+      }
+    }
+  }
+]

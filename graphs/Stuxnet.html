@@ -1,0 +1,167 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 1800px;
+                 height: 1200px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "exploit_0", "label": "exploit", "sent_nums": [0], "shape": "triangle", "size": 14.0, "tactic": "Initial Access", "technique": "Initial Access-T1091-Replication Through Removable Media", "type": "event", "x": 0.0, "y": 0.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "cve 2010 2568", "label": "cve 2010 2568", "shape": "dot", "size": 14.0, "type": "entity", "x": 0.0, "y": 140.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "use_1", "label": "use", "sent_nums": [2], "shape": "triangle", "size": 14.0, "tactic": "Initial Access", "technique": "Initial Access-T1091-Replication Through Removable Media", "type": "event", "x": 163.63636363636363, "y": 0.0}, {"color": "#B4B4D5", "depth": 1, "font": {"size": 20.0}, "id": "stuxnet", "label": "stuxnet", "shape": "dot", "size": 14.0, "type": "entity", "x": 829.8701298701299, "y": 140.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "scada systems", "label": "scada systems", "shape": "dot", "size": 14.0, "type": "entity", "x": 1075.3246753246754, "y": 220.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "malicious code", "label": "malicious code", "shape": "dot", "size": 14.0, "type": "entity", "x": 993.5064935064935, "y": 220.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "contain_2", "label": "contain", "sent_nums": [1], "shape": "triangle", "size": 14.0, "tactic": "Execution", "technique": "Execution-T1129-Shared Modules", "type": "event", "x": 327.27272727272725, "y": 40.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "contain_3", "label": "contain", "sent_nums": [1], "shape": "triangle", "size": 14.0, "tactic": "Execution", "technique": "Execution-T1129-Shared Modules", "type": "event", "x": 327.27272727272725, "y": -40.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "legitimate system files", "label": "legitimate system files", "shape": "dot", "size": 14.0, "type": "entity", "x": 911.6883116883116, "y": 220.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "execute_4", "label": "execute", "sent_nums": [4], "shape": "triangle", "size": 14.0, "tactic": "Execution", "technique": "Execution-T1129-Shared Modules", "type": "event", "x": 490.9090909090909, "y": 0.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "persistence", "label": "persistence", "shape": "dot", "size": 14.0, "type": "entity", "x": 829.8701298701299, "y": 220.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "use_5", "label": "use", "sent_nums": [1], "shape": "triangle", "size": 14.0, "tactic": "Persistence", "technique": "Persistence-T1542-Pre-OS Boot", "type": "event", "x": 654.5454545454545, "y": 0.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "modify_6", "label": "modify", "sent_nums": [3], "shape": "triangle", "size": 14.0, "tactic": "Persistence", "technique": "Persistence-T1547-Boot or Logon Autostart Execution", "type": "event", "x": 818.1818181818181, "y": 0.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "utilize_7", "label": "utilize", "sent_nums": [0], "shape": "triangle", "size": 14.0, "tactic": "Privilege Escalation", "technique": "Privilege Escalation-T1548-Abuse Elevation Control Mechanism", "type": "event", "x": 981.8181818181818, "y": 40.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "utilize_8", "label": "utilize", "sent_nums": [0], "shape": "triangle", "size": 14.0, "tactic": "Privilege Escalation", "technique": "Privilege Escalation-T1548-Abuse Elevation Control Mechanism", "type": "event", "x": 981.8181818181818, "y": -40.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "use_9", "label": "use", "sent_nums": [1], "shape": "triangle", "size": 14.0, "tactic": "Defense Evasion", "technique": "Defense Evasion-T1014-Rootkit", "type": "event", "x": 1145.4545454545455, "y": 0.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "stolen digital certificates", "label": "stolen digital certificates", "shape": "dot", "size": 14.0, "type": "entity", "x": 748.0519480519481, "y": 220.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "system libraries", "label": "system libraries", "shape": "dot", "size": 14.0, "type": "entity", "x": 666.2337662337662, "y": 220.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "networks", "label": "networks", "shape": "dot", "size": 14.0, "type": "entity", "x": 584.4155844155844, "y": 220.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "exploit_10", "label": "exploit", "sent_nums": [1], "shape": "triangle", "size": 14.0, "tactic": "Lateral Movement", "technique": "Lateral Movement-T1210-Exploitation of Remote Services", "type": "event", "x": 1309.090909090909, "y": 40.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "exploit_11", "label": "exploit", "sent_nums": [1], "shape": "triangle", "size": 14.0, "tactic": "Lateral Movement", "technique": "Lateral Movement-T1210-Exploitation of Remote Services", "type": "event", "x": 1309.090909090909, "y": -40.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "network shares", "label": "network shares", "shape": "dot", "size": 14.0, "type": "entity", "x": 502.5974025974026, "y": 220.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "install_12", "label": "install", "sent_nums": [2], "shape": "triangle", "size": 14.0, "tactic": "Lateral Movement", "technique": "Lateral Movement-T1570-Lateral Tool Transfer", "type": "event", "x": 1472.7272727272725, "y": 0.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "multiple systems", "label": "multiple systems", "shape": "dot", "size": 14.0, "type": "entity", "x": 420.7792207792208, "y": 220.0}, {"color": "#8DF56E", "depth": 0, "font": {"size": 20.0}, "id": "communicate with_13", "label": "communicate with", "sent_nums": [0], "shape": "triangle", "size": 14.0, "tactic": "Command and Control", "technique": "Command and Control-T1071-Application Layer Protocol", "type": "event", "x": 1636.3636363636363, "y": 0.0}, {"color": "#FF6347", "depth": 2, "font": {"size": 20.0}, "id": "Initial Access", "label": "Initial Access", "shape": "box", "size": 14.0, "type": "tactic", "x": 0.0, "y": -168.0}, {"caption": "T1091", "color": "#FFD700", "depth": 1, "font": {"size": 20.0}, "id": "Initial Access-T1091-Replication Through Removable Media", "label": "T1091", "shape": "box", "size": 14.0, "type": "technique", "x": 0.0, "y": -104.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": ".lnk files", "label": ".lnk files", "shape": "dot", "size": 14.0, "type": "entity", "x": 163.63636363636363, "y": 140.0}, {"color": "#B4B4D5", "depth": 1, "font": {"size": 20.0}, "id": "mrxcls.sys", "label": "mrxcls.sys", "shape": "dot", "size": 14.0, "type": "entity", "x": 531.8181818181818, "y": 140.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "injecting code", "label": "injecting code", "shape": "dot", "size": 14.0, "type": "entity", "x": 490.9090909090909, "y": 220.0}, {"color": "#FF6347", "depth": 2, "font": {"size": 20.0}, "id": "Execution", "label": "Execution", "shape": "box", "size": 14.0, "type": "tactic", "x": 204.54545454545453, "y": -168.0}, {"caption": "T1129", "color": "#FFD700", "depth": 1, "font": {"size": 20.0}, "id": "Execution-T1129-Shared Modules", "label": "T1129", "shape": "box", "size": 14.0, "type": "technique", "x": 204.54545454545453, "y": -104.0}, {"color": "#B4B4D5", "depth": 1, "font": {"size": 20.0}, "id": "mrxnet.sys", "label": "mrxnet.sys", "shape": "dot", "size": 14.0, "type": "entity", "x": 327.27272727272725, "y": 140.0}, {"color": "#287271", "depth": 2, "font": {"size": 20.0}, "id": "hiding files", "label": "hiding files", "shape": "dot", "size": 14.0, "type": "entity", "x": 327.27272727272725, "y": 220.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "exported functions", "label": "exported functions", "shape": "dot", "size": 14.0, "type": "entity", "x": 450.0, "y": 140.0}, {"color": "#FF6347", "depth": 2, "font": {"size": 20.0}, "id": "Persistence", "label": "Persistence", "shape": "box", "size": 14.0, "type": "tactic", "x": 511.3636363636363, "y": -168.0}, {"caption": "T1542", "color": "#FFD700", "depth": 1, "font": {"size": 20.0}, "id": "Persistence-T1542-Pre-OS Boot", "label": "T1542", "shape": "box", "size": 14.0, "type": "technique", "x": 409.09090909090907, "y": -104.0}, {"caption": "T1547", "color": "#FFD700", "depth": 1, "font": {"size": 20.0}, "id": "Persistence-T1547-Boot or Logon Autostart Execution", "label": "T1547", "shape": "box", "size": 14.0, "type": "technique", "x": 613.6363636363636, "y": -104.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "system files and registry keys", "label": "system files and registry keys", "shape": "dot", "size": 14.0, "type": "entity", "x": 818.1818181818181, "y": 140.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "ms10 073", "label": "ms10 073", "shape": "dot", "size": 14.0, "type": "entity", "x": 1022.7272727272726, "y": 140.0}, {"color": "#FF6347", "depth": 2, "font": {"size": 20.0}, "id": "Privilege Escalation", "label": "Privilege Escalation", "shape": "box", "size": 14.0, "type": "tactic", "x": 818.1818181818181, "y": -168.0}, {"caption": "T1548", "color": "#FFD700", "depth": 1, "font": {"size": 20.0}, "id": "Privilege Escalation-T1548-Abuse Elevation Control Mechanism", "label": "T1548", "shape": "box", "size": 14.0, "type": "technique", "x": 818.1818181818181, "y": -104.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "ms10 092", "label": "ms10 092", "shape": "dot", "size": 14.0, "type": "entity", "x": 940.9090909090909, "y": 140.0}, {"color": "#B4B4D5", "depth": 2, "font": {"size": 20.0}, "id": "ms10 073 vulnerability", "label": "ms10 073 vulnerability", "shape": "dot", "size": 14.0, "type": "entity", "x": 1238.9610389610389, "y": 220.0}, {"color": "#B4B4D5", "depth": 2, "font": {"size": 20.0}, "id": "ms10 092 vulnerability", "label": "ms10 092 vulnerability", "shape": "dot", "size": 14.0, "type": "entity", "x": 1157.142857142857, "y": 220.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "rootkit functionality", "label": "rootkit functionality", "shape": "dot", "size": 14.0, "type": "entity", "x": 1145.4545454545455, "y": 140.0}, {"color": "#FF6347", "depth": 2, "font": {"size": 20.0}, "id": "Defense Evasion", "label": "Defense Evasion", "shape": "box", "size": 14.0, "type": "tactic", "x": 1022.7272727272726, "y": -168.0}, {"caption": "T1014", "color": "#FFD700", "depth": 1, "font": {"size": 20.0}, "id": "Defense Evasion-T1014-Rootkit", "label": "T1014", "shape": "box", "size": 14.0, "type": "technique", "x": 1022.7272727272726, "y": -104.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "ms08 067 rpc vulnerability", "label": "ms08 067 rpc vulnerability", "shape": "dot", "size": 14.0, "type": "entity", "x": 1350.0, "y": 140.0}, {"color": "#FF6347", "depth": 2, "font": {"size": 20.0}, "id": "Lateral Movement", "label": "Lateral Movement", "shape": "box", "size": 14.0, "type": "tactic", "x": 1329.5454545454545, "y": -168.0}, {"caption": "T1210", "color": "#FFD700", "depth": 1, "font": {"size": 20.0}, "id": "Lateral Movement-T1210-Exploitation of Remote Services", "label": "T1210", "shape": "box", "size": 14.0, "type": "technique", "x": 1227.2727272727273, "y": -104.0}, {"caption": "T1570", "color": "#FFD700", "depth": 1, "font": {"size": 20.0}, "id": "Lateral Movement-T1570-Lateral Tool Transfer", "label": "T1570", "shape": "box", "size": 14.0, "type": "technique", "x": 1431.8181818181818, "y": -104.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "ms10 061 print spooler vulnerability", "label": "ms10 061 print spooler vulnerability", "shape": "dot", "size": 14.0, "type": "entity", "x": 1268.181818181818, "y": 140.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "its dropper", "label": "its dropper", "shape": "dot", "size": 14.0, "type": "entity", "x": 1472.7272727272725, "y": 140.0}, {"color": "#287271", "depth": 1, "font": {"size": 20.0}, "id": "c\u0026c servers", "label": "c\u0026c servers", "shape": "dot", "size": 14.0, "type": "entity", "x": 1636.3636363636363, "y": 140.0}, {"color": "#FF6347", "depth": 2, "font": {"size": 20.0}, "id": "Command and Control", "label": "Command and Control", "shape": "box", "size": 14.0, "type": "tactic", "x": 1636.3636363636363, "y": -168.0}, {"caption": "T1071", "color": "#FFD700", "depth": 1, "font": {"size": 20.0}, "id": "Command and Control-T1071-Application Layer Protocol", "label": "T1071", "shape": "box", "size": 14.0, "type": "technique", "x": 1636.3636363636363, "y": -104.0}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "exploit_0", "relation": "Object", "to": "cve 2010 2568", "width": 1}, {"arrows": "to", "from": "exploit_0", "to": "use_1", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "exploit_0", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "use_1", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "stuxnet", "label": "target", "relation": "target", "to": "scada systems", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "stuxnet", "label": "involve", "relation": "involve", "to": "malicious code", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "contain_2", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "contain_3", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "stuxnet", "label": "replace", "relation": "replace", "to": "legitimate system files", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "execute_4", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "stuxnet", "label": "achieve", "relation": "achieve", "to": "persistence", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "use_5", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "modify_6", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "utilize_7", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "utilize_8", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "use_9", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "stuxnet", "label": "signed-with", "relation": "signed-with", "to": "stolen digital certificates", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "stuxnet", "label": "patch", "relation": "patch", "to": "system libraries", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "stuxnet", "label": "propagate", "relation": "propagate", "to": "networks", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "exploit_10", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "exploit_11", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "stuxnet", "label": "scan", "relation": "scan", "to": "network shares", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "install_12", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "stuxnet", "label": "infect", "relation": "infect", "to": "multiple systems", "width": 1}, {"arrows": "to", "from": "stuxnet", "relation": "Subject", "to": "communicate with_13", "width": 1}, {"arrows": "to", "from": "Initial Access", "to": "Initial Access-T1091-Replication Through Removable Media", "width": 1}, {"arrows": "to", "from": "Initial Access-T1091-Replication Through Removable Media", "to": "exploit_0", "width": 1}, {"arrows": "to", "from": "Initial Access-T1091-Replication Through Removable Media", "to": "use_1", "width": 1}, {"arrows": "to", "from": "use_1", "relation": "Object", "to": ".lnk files", "width": 1}, {"arrows": "to", "from": "use_1", "to": "contain_2", "width": 1}, {"arrows": "to", "from": "use_1", "to": "contain_3", "width": 1}, {"arrows": "to", "from": "contain_2", "relation": "Object", "to": "mrxcls.sys", "width": 1}, {"arrows": "to", "from": "contain_2", "to": "execute_4", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "mrxcls.sys", "label": "responsible-for", "relation": "responsible-for", "to": "injecting code", "width": 1}, {"arrows": "to", "from": "Execution", "to": "Execution-T1129-Shared Modules", "width": 1}, {"arrows": "to", "from": "Execution-T1129-Shared Modules", "to": "contain_2", "width": 1}, {"arrows": "to", "from": "Execution-T1129-Shared Modules", "to": "contain_3", "width": 1}, {"arrows": "to", "from": "Execution-T1129-Shared Modules", "to": "execute_4", "width": 1}, {"arrows": "to", "from": "contain_3", "relation": "Object", "to": "mrxnet.sys", "width": 1}, {"arrows": "to", "from": "contain_3", "to": "execute_4", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "mrxnet.sys", "label": "responsible-for", "relation": "responsible-for", "to": "hiding files", "width": 1}, {"arrows": "to", "from": "execute_4", "relation": "Object", "to": "exported functions", "width": 1}, {"arrows": "to", "from": "execute_4", "to": "use_5", "width": 1}, {"arrows": "to", "from": "use_5", "relation": "Object", "to": "mrxcls.sys", "width": 1}, {"arrows": "to", "from": "use_5", "to": "modify_6", "width": 1}, {"arrows": "to", "from": "Persistence", "to": "Persistence-T1542-Pre-OS Boot", "width": 1}, {"arrows": "to", "from": "Persistence", "to": "Persistence-T1547-Boot or Logon Autostart Execution", "width": 1}, {"arrows": "to", "from": "Persistence-T1542-Pre-OS Boot", "to": "use_5", "width": 1}, {"arrows": "to", "from": "modify_6", "relation": "Object", "to": "system files and registry keys", "width": 1}, {"arrows": "to", "from": "modify_6", "to": "utilize_7", "width": 1}, {"arrows": "to", "from": "modify_6", "to": "utilize_8", "width": 1}, {"arrows": "to", "from": "Persistence-T1547-Boot or Logon Autostart Execution", "to": "modify_6", "width": 1}, {"arrows": "to", "from": "utilize_7", "relation": "Object", "to": "ms10 073", "width": 1}, {"arrows": "to", "from": "utilize_7", "to": "use_9", "width": 1}, {"arrows": "to", "from": "Privilege Escalation", "to": "Privilege Escalation-T1548-Abuse Elevation Control Mechanism", "width": 1}, {"arrows": "to", "from": "Privilege Escalation-T1548-Abuse Elevation Control Mechanism", "to": "utilize_7", "width": 1}, {"arrows": "to", "from": "Privilege Escalation-T1548-Abuse Elevation Control Mechanism", "to": "utilize_8", "width": 1}, {"arrows": "to", "from": "utilize_8", "relation": "Object", "to": "ms10 092", "width": 1}, {"arrows": "to", "from": "utilize_8", "to": "use_9", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "ms10 073 vulnerability", "label": "allow", "relation": "allow", "to": "stuxnet", "width": 1}, {"arrows": "to", "dashes": true, "dashline": true, "font": {"size": 16.0}, "from": "ms10 092 vulnerability", "label": "enable", "relation": "enable", "to": "stuxnet", "width": 1}, {"arrows": "to", "from": "use_9", "relation": "Object", "to": "rootkit functionality", "width": 1}, {"arrows": "to", "from": "use_9", "to": "exploit_10", "width": 1}, {"arrows": "to", "from": "use_9", "to": "exploit_11", "width": 1}, {"arrows": "to", "from": "Defense Evasion", "to": "Defense Evasion-T1014-Rootkit", "width": 1}, {"arrows": "to", "from": "Defense Evasion-T1014-Rootkit", "to": "use_9", "width": 1}, {"arrows": "to", "from": "exploit_10", "relation": "Object", "to": "ms08 067 rpc vulnerability", "width": 1}, {"arrows": "to", "from": "exploit_10", "to": "install_12", "width": 1}, {"arrows": "to", "from": "Lateral Movement", "to": "Lateral Movement-T1210-Exploitation of Remote Services", "width": 1}, {"arrows": "to", "from": "Lateral Movement", "to": "Lateral Movement-T1570-Lateral Tool Transfer", "width": 1}, {"arrows": "to", "from": "Lateral Movement-T1210-Exploitation of Remote Services", "to": "exploit_10", "width": 1}, {"arrows": "to", "from": "Lateral Movement-T1210-Exploitation of Remote Services", "to": "exploit_11", "width": 1}, {"arrows": "to", "from": "exploit_11", "relation": "Object", "to": "ms10 061 print spooler vulnerability", "width": 1}, {"arrows": "to", "from": "exploit_11", "to": "install_12", "width": 1}, {"arrows": "to", "from": "install_12", "relation": "Object", "to": "its dropper", "width": 1}, {"arrows": "to", "from": "install_12", "to": "communicate with_13", "width": 1}, {"arrows": "to", "from": "Lateral Movement-T1570-Lateral Tool Transfer", "to": "install_12", "width": 1}, {"arrows": "to", "from": "communicate with_13", "relation": "Object", "to": "c\u0026c servers", "width": 1}, {"arrows": "to", "from": "Command and Control", "to": "Command and Control-T1071-Application Layer Protocol", "width": 1}, {"arrows": "to", "from": "Command and Control-T1071-Application Layer Protocol", "to": "communicate with_13", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": false,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

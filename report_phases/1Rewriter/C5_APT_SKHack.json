@@ -1,0 +1,17 @@
+{
+  "Reconnaissance": "None",
+  "Resource Development": "None",
+  "Initial Access": "The attackers initially compromised a server belonging to a South Korean software company, ESTsoft, which was used to deliver software updates to customers, including SK Communications. Between July 18 and 25, 2011, the attackers modified the server to distribute a trojaned update file to SK Communications computers during routine checks for software updates. This trojaned update file contained the malware 'Backdoor.Agent.Hza', which subsequently infected over 60 SK Communications computers.",
+  "Execution": "The malware 'Backdoor.Agent.Hza', dropped by the trojaned update file, executed on the infected SK Communications computers, establishing a backdoor for the attackers. The malware communicated with a command and control server located at the South Korean IP address 116.127.121.41 on TCP port 8080. The attackers also installed additional malware named 'nateon.exe' on at least one of the infected computers, which was used to access the user databases.",
+  "Persistence": "None",
+  "Privilege Escalation": "None",
+  "Defense Evasion": "The attackers used a legitimate software update process as a means of delivering the trojaned update, effectively turning a security practice into a vulnerability. The security of software updates is usually trusted implicitly, and the exploitation of this trust relationship went undetected by SK Communications for some time.",
+  "Credential Access": "None",
+  "Discovery": "None",
+  "Lateral Movement": "None",
+  "Collection": "None",
+  "Command and Control": "The infected computers communicated with a command and control server using the domain 'update.alyac.org', which resolved to the South Korean IP address 116.127.121.41. The attackers used this infrastructure to monitor and control the infected computers, and to facilitate the theft of personal information from the user databases.",
+  "Exfiltration": "The attackers exfiltrated the personal details of up to 35 million SK Communications customers from the user databases to a waypoint, purportedly belonging to a company based in Seoul's Nonhyeon neighborhood. The personal information included names, phone numbers, home and email addresses, birth dates, gender details, user identifiers, passwords, and resident registration numbers due to South Korea's Real Name System in place at the time.",
+  "Impact": "None",
+  "Others": "None"
+}
